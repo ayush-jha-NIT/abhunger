@@ -1,0 +1,11 @@
+[
+  { "id": "home", "label": "Home", "href": "/", "reference": "home" },
+  { "id": "about", "label": "About", "href": "/about", "reference": "about" },
+  { "id": "menu", "label": "Menu", "href": "/menu", "reference": "not-supplied" },
+  { "id": "gallery", "label": "Gallery", "href": "/gallery", "reference": "gallery" },
+  { "id": "events", "label": "Parties & Events", "href": "/parties-events", "reference": "events" },
+  { "id": "contact", "label": "Contact", "href": "/contact", "reference": "contact" },
+  { "id": "book-table", "label": "Book a Table", "href": "/book-table", "reference": "book-table" },
+  { "id": "cart", "label": "Cart", "href": "/cart", "reference": "cart" },
+  { "id": "checkout", "label": "Checkout", "href": "/checkout", "reference": "checkout" }
+]

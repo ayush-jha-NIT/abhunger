@@ -1,0 +1,594 @@
+diff --git a/.env.example b/.env.example
+new file mode 100644
+index 0000000..d22e24e
+--- /dev/null
++++ b/.env.example
+@@ -0,0 +1,8 @@
++# Public site URL, used for metadata. Set the production domain before launch.
++NEXT_PUBLIC_SITE_URL=http://localhost:3000
++
++# Verified restaurant WhatsApp number: country code + digits, no + or spaces.
++NEXT_PUBLIC_WHATSAPP_NUMBER=
++
++# Official Google Maps link, verified with the restaurant.
++NEXT_PUBLIC_GOOGLE_MAPS_URL=
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+new file mode 100644
+index 0000000..4be9983
+--- /dev/null
++++ b/.github/workflows/ci.yml
+@@ -0,0 +1,27 @@
++name: CI
++
++on:
++  push:
++  pull_request:
++
++jobs:
++  verify:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-node@v4
++        with:
++          node-version-file: .nvmrc
++      - name: Install dependencies
++        # After npm install is run locally, commit package-lock.json and use npm ci.
++        run: npm install --no-audit --no-fund
++      - name: Lint
++        run: npm run lint
++      - name: Typecheck
++        run: npm run typecheck
++      - name: Scaffold tests
++        run: npm test
++      - name: Production build
++        run: npm run build
++        env:
++          NEXT_PUBLIC_SITE_URL: https://example.com
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..6a033ff
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,16 @@
++node_modules/
++.next/
++out/
++build/
++.env
++.env.*
++!.env.example
++*.tsbuildinfo
++next-env.d.ts
++coverage/
++.vercel/
++.DS_Store
++Thumbs.db
++.vscode/
++.idea/
++npm-debug.log*
+diff --git a/.nvmrc b/.nvmrc
+new file mode 100644
+index 0000000..2bd5a0a
+--- /dev/null
++++ b/.nvmrc
+@@ -0,0 +1 @@
++22
+diff --git a/.prettierignore b/.prettierignore
+new file mode 100644
+index 0000000..5fbc7cf
+--- /dev/null
++++ b/.prettierignore
+@@ -0,0 +1,7 @@
++node_modules
++.next
++out
++build
++coverage
++package-lock.json
++*.patch
+diff --git a/.prettierrc.json b/.prettierrc.json
+new file mode 100644
+index 0000000..bccee91
+--- /dev/null
++++ b/.prettierrc.json
+@@ -0,0 +1,6 @@
++{
++  "semi": true,
++  "singleQuote": false,
++  "trailingComma": "all",
++  "printWidth": 100
++}
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..fdc9db5
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,62 @@
++# AB Hunger Station
++
++Next.js foundation for the AB Hunger Station Restaurant & Café website.
++
++> **Part 0 only:** The current homepage is a temporary technical smoke-test.
++> The supplied screenshot-matched design will be implemented in later phases.
++
++## Requirements
++
++- Node.js 22 (`.nvmrc`)
++- npm
++
++## Setup
++
++```bash
++npm install
++cp .env.example .env.local
++npm run dev
++```
++
++Windows PowerShell: `Copy-Item .env.example .env.local`
++
++Visit `http://localhost:3000`.
++
++## Validate
++
++```bash
++npm run lint
++npm run typecheck
++npm test
++npm run build
++```
++
++`npm test` uses Node's built-in test runner and requires no installed packages.
++
++## Dependency lockfile
++
++Because npm registry access was not available while preparing this patch, no
++fabricated `package-lock.json` has been included. The first successful `npm install`
++will generate it. Commit that lockfile and change CI's `npm install` command to
++`npm ci` for reproducible builds.
++
++## Layout
++
++- `src/app/`: Next.js App Router and global styles
++- `src/config/`: restaurant metadata and route inventory
++- `src/lib/`: shared helpers
++- `public/images/`: source images organized by subject
++- `docs/`: development scope and screenshot mapping
++- `tests/`: foundation checks
++
++## Confirmed workflows
++
++- Orders: Menu → Cart → Checkout → prefilled WhatsApp message
++- Bookings: WhatsApp inquiry, confirmed manually by the restaurant
++- Payment: Cash/UPI coordinated with the restaurant
++- Fulfillment: Delivery and takeaway
++- Contact: WhatsApp
++- Menu: code-managed
++
++No payment gateway, WhatsApp Business API, database or admin panel is required
++for this first release. Sending an inquiry is not an instant confirmed booking.
+diff --git a/docs/design-reference-map.md b/docs/design-reference-map.md
+new file mode 100644
+index 0000000..a7fdc74
+--- /dev/null
++++ b/docs/design-reference-map.md
+@@ -0,0 +1,18 @@
++# Supplied design references
++
++| Route | Supplied design file |
++| --- | --- |
++| `/` | AB Hunger Station Landing Page(1).png |
++| `/about` | AB Hunger Station_ Our Story.png |
++| `/menu` | No dedicated Menu page supplied |
++| `/gallery` | AB Hunger Station_ A Visual Treat.png |
++| `/contact` | AB Hunger Station Contact Page(1).png |
++| `/parties-events` | AB Hunger Station Parties & Events(1).png |
++| `/book-table` | Book a Table at AB Hunger Station(1).png |
++| `/cart` | AB Hunger Station Cart Page(1).png |
++| `/checkout` | AB Hunger Station Checkout Page(1).png |
++
++Visual matching includes composition, section order, typography, food-photo
++subject, light quality, crop, cream/orange/dark brown colors and responsive
++adaptations. Screenshots are not original-resolution photographs and are not
++included in this source-code patch.
+diff --git a/docs/phase-0-foundation.md b/docs/phase-0-foundation.md
+new file mode 100644
+index 0000000..52d4a11
+--- /dev/null
++++ b/docs/phase-0-foundation.md
+@@ -0,0 +1,38 @@
++# Part 0: Foundation
++
++## Included
++
++- Next.js 16 App Router, TypeScript, Tailwind CSS 4
++- ESLint, Prettier and initial brand color tokens
++- Temporary smoke-test Home page and root metadata
++- Approved 9-page route inventory and central site configuration
++- Empty image asset directories for later phases
++- Minimal dependency-free scaffold tests and GitHub Actions workflow
++
++## Not included in Part 0
++
++This patch does **not** recreate the screenshots. High-resolution photography,
++brand logo, visual header/footer, actual public pages, ordering, cart, contact
++forms, and booking requests belong to later phases. A temporary development
++home screen is intentional.
++
++## Input needed before production
++
++- Original logo and high-quality food/interior/event photographs
++- Verified menu data with prices and availability
++- Verified WhatsApp contact number and location
++- Opening hours, delivery area and fees, payment process
++- Party capacities, booking policies, production domain
++
++No phone number, prices, delivery fee, booking capacity or hours have been
++invented in source code.
++
++## Later implementation order
++
++1. Screenshot analysis and visual system
++2. Image library and photo treatments
++3. Responsive header, footer and navigation
++4. Home, About, Gallery, Contact
++5. Menu, Events, Table booking
++6. Cart and WhatsApp checkout
++7. SEO, accessibility, pixel comparison, deployment
+diff --git a/eslint.config.mjs b/eslint.config.mjs
+new file mode 100644
+index 0000000..8fbfe15
+--- /dev/null
++++ b/eslint.config.mjs
+@@ -0,0 +1,9 @@
++import { defineConfig, globalIgnores } from "eslint/config";
++import nextVitals from "eslint-config-next/core-web-vitals";
++import nextTypescript from "eslint-config-next/typescript";
++
++export default defineConfig([
++  ...nextVitals,
++  ...nextTypescript,
++  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
++]);
+diff --git a/next.config.ts b/next.config.ts
+new file mode 100644
+index 0000000..6bac90a
+--- /dev/null
++++ b/next.config.ts
+@@ -0,0 +1,9 @@
++import type { NextConfig } from "next";
++
++const nextConfig: NextConfig = {
++  reactStrictMode: true,
++  poweredByHeader: false,
++  images: { formats: ["image/avif", "image/webp"] },
++};
++
++export default nextConfig;
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..5a03a6f
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,37 @@
++{
++  "name": "ab-hunger-station",
++  "version": "0.1.0",
++  "private": true,
++  "engines": { "node": ">=22.0.0" },
++  "scripts": {
++    "dev": "next dev",
++    "build": "next build",
++    "start": "next start",
++    "lint": "eslint .",
++    "typecheck": "tsc --noEmit",
++    "test": "node --test tests/*.test.mjs",
++    "format": "prettier --write .",
++    "format:check": "prettier --check ."
++  },
++  "dependencies": {
++    "clsx": "^2.1.1",
++    "lucide-react": "^0.552.0",
++    "motion": "^12.23.0",
++    "next": "16.4.5",
++    "react": "^19.2.0",
++    "react-dom": "^19.2.0",
++    "tailwind-merge": "^3.4.0"
++  },
++  "devDependencies": {
++    "@tailwindcss/postcss": "^4.3.3",
++    "@types/node": "^22.18.0",
++    "@types/react": "^19.2.0",
++    "@types/react-dom": "^19.2.0",
++    "eslint": "^9.39.0",
++    "eslint-config-next": "16.4.5",
++    "postcss": "^8.5.6",
++    "prettier": "^3.6.2",
++    "tailwindcss": "^4.3.3",
++    "typescript": "^5.9.3"
++  }
++}
+diff --git a/postcss.config.mjs b/postcss.config.mjs
+new file mode 100644
+index 0000000..4de2724
+--- /dev/null
++++ b/postcss.config.mjs
+@@ -0,0 +1,5 @@
++const config = {
++  plugins: { "@tailwindcss/postcss": {} },
++};
++
++export default config;
+diff --git a/public/images/branding/.gitkeep b/public/images/branding/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/public/images/events/.gitkeep b/public/images/events/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/public/images/food/.gitkeep b/public/images/food/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/public/images/interiors/.gitkeep b/public/images/interiors/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/app/globals.css b/src/app/globals.css
+new file mode 100644
+index 0000000..40219a4
+--- /dev/null
++++ b/src/app/globals.css
+@@ -0,0 +1,30 @@
++@import "tailwindcss";
++
++/* Phase 0 tokens inspired by the design references. Refine with visual QA. */
++:root {
++  --color-cream: #fff8f3;
++  --color-cream-deep: #f6e8de;
++  --color-ink: #2c130e;
++  --color-orange: #dd470b;
++  --color-orange-deep: #b83906;
++  --color-brown: #32170f;
++  --color-outline: #e9d7cb;
++}
++
++@theme inline {
++  --color-brand-cream: var(--color-cream);
++  --color-brand-cream-deep: var(--color-cream-deep);
++  --color-brand-ink: var(--color-ink);
++  --color-brand-orange: var(--color-orange);
++  --color-brand-orange-deep: var(--color-orange-deep);
++  --color-brand-brown: var(--color-brown);
++  --color-brand-outline: var(--color-outline);
++  --font-sans: Arial, Helvetica, sans-serif;
++  --font-serif: Georgia, "Times New Roman", serif;
++}
++
++* { box-sizing: border-box; }
++html { scroll-behavior: smooth; }
++body { margin: 0; background: var(--color-cream); color: var(--color-ink); }
++button, input, select, textarea { font: inherit; }
++::selection { background: var(--color-orange); color: white; }
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+new file mode 100644
+index 0000000..f5fcffd
+--- /dev/null
++++ b/src/app/layout.tsx
+@@ -0,0 +1,30 @@
++import type { Metadata, Viewport } from "next";
++import type { ReactNode } from "react";
++import { siteConfig, siteUrl } from "@/config/site";
++import "./globals.css";
++
++export const metadata: Metadata = {
++  metadataBase: siteUrl,
++  title: {
++    default: `${siteConfig.name} | Restaurant & Café`,
++    template: `%s | ${siteConfig.name}`,
++  },
++  description: siteConfig.description,
++  applicationName: siteConfig.name,
++};
++
++export const viewport: Viewport = {
++  width: "device-width",
++  initialScale: 1,
++  themeColor: "#fff8f3",
++};
++
++export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
++  return (
++    <html lang="en">
++      <body className="min-h-screen bg-brand-cream text-brand-ink antialiased">
++        {children}
++      </body>
++    </html>
++  );
++}
+diff --git a/src/app/not-found.tsx b/src/app/not-found.tsx
+new file mode 100644
+index 0000000..9bd6298
+--- /dev/null
++++ b/src/app/not-found.tsx
+@@ -0,0 +1,13 @@
++import Link from "next/link";
++
++export default function NotFound() {
++  return (
++    <main className="mx-auto flex min-h-screen max-w-xl flex-col items-start justify-center px-6">
++      <h1 className="font-serif text-4xl font-bold">Page not found</h1>
++      <p className="mt-3 leading-relaxed">This page has not been published yet.</p>
++      <Link className="mt-6 font-semibold text-brand-orange underline" href="/">
++        Return home
++      </Link>
++    </main>
++  );
++}
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+new file mode 100644
+index 0000000..154528d
+--- /dev/null
++++ b/src/app/page.tsx
+@@ -0,0 +1,20 @@
++import { siteConfig } from "@/config/site";
++
++/** Temporary Phase 0 smoke-test page, not the final screenshot-matched Home design. */
++export default function Home() {
++  return (
++    <main className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-20 sm:px-10">
++      <p className="mb-5 text-sm font-semibold tracking-[0.25em] text-brand-orange uppercase">
++        Website foundation ready
++      </p>
++      <h1 className="max-w-3xl font-serif text-5xl leading-tight font-bold sm:text-7xl">
++        {siteConfig.name}
++      </h1>
++      <p className="mt-5 max-w-xl text-lg leading-relaxed">{siteConfig.tagline}</p>
++      <div className="mt-8 max-w-xl border-t border-brand-outline pt-6 text-sm leading-relaxed text-brand-brown">
++        Part 0 is the technical foundation. The reference-matched pages, original-quality
++        photography, navigation, ordering and reservations are built in the next phases.
++      </div>
++    </main>
++  );
++}
+diff --git a/src/components/.gitkeep b/src/components/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/config/routes.json b/src/config/routes.json
+new file mode 100644
+index 0000000..05539a7
+--- /dev/null
++++ b/src/config/routes.json
+@@ -0,0 +1,11 @@
++[
++  { "id": "home", "label": "Home", "href": "/", "reference": "home" },
++  { "id": "about", "label": "About", "href": "/about", "reference": "about" },
++  { "id": "menu", "label": "Menu", "href": "/menu", "reference": "not-supplied" },
++  { "id": "gallery", "label": "Gallery", "href": "/gallery", "reference": "gallery" },
++  { "id": "events", "label": "Parties & Events", "href": "/parties-events", "reference": "events" },
++  { "id": "contact", "label": "Contact", "href": "/contact", "reference": "contact" },
++  { "id": "book-table", "label": "Book a Table", "href": "/book-table", "reference": "book-table" },
++  { "id": "cart", "label": "Cart", "href": "/cart", "reference": "cart" },
++  { "id": "checkout", "label": "Checkout", "href": "/checkout", "reference": "checkout" }
++]
+diff --git a/src/config/site.ts b/src/config/site.ts
+new file mode 100644
+index 0000000..46d5aba
+--- /dev/null
++++ b/src/config/site.ts
+@@ -0,0 +1,20 @@
++/** Business metadata only. Operational details require client confirmation. */
++export const siteConfig = {
++  name: "AB Hunger Station",
++  category: "Restaurant & Café",
++  tagline: "Good Food, Great Coffee & Memorable Moments",
++  description:
++    "AB Hunger Station is a restaurant and café in Prayagraj. Discover food, coffee and a welcoming dining experience.",
++  city: "Prayagraj",
++  state: "Uttar Pradesh",
++  country: "India",
++} as const;
++
++/** Never hard-code an unconfirmed production domain. */
++export const siteUrl = (() => {
++  try {
++    return new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
++  } catch {
++    return new URL("http://localhost:3000");
++  }
++})();
+diff --git a/src/features/.gitkeep b/src/features/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/hooks/.gitkeep b/src/hooks/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/lib/utils.ts b/src/lib/utils.ts
+new file mode 100644
+index 0000000..f1c1fe5
+--- /dev/null
++++ b/src/lib/utils.ts
+@@ -0,0 +1,15 @@
++import { clsx, type ClassValue } from "clsx";
++import { twMerge } from "tailwind-merge";
++
++export function cn(...inputs: ClassValue[]): string {
++  return twMerge(clsx(inputs));
++}
++
++export function formatINR(amount: number): string {
++  if (!Number.isFinite(amount)) throw new Error("Invalid currency amount");
++  return new Intl.NumberFormat("en-IN", {
++    style: "currency",
++    currency: "INR",
++    maximumFractionDigits: 2,
++  }).format(amount);
++}
+diff --git a/tests/foundation.test.mjs b/tests/foundation.test.mjs
+new file mode 100644
+index 0000000..e78b4d9
+--- /dev/null
++++ b/tests/foundation.test.mjs
+@@ -0,0 +1,38 @@
++import assert from "node:assert/strict";
++import { existsSync, readFileSync } from "node:fs";
++import { test } from "node:test";
++
++const readJson = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
++const paths = [
++  "/", "/about", "/menu", "/gallery", "/parties-events",
++  "/contact", "/book-table", "/cart", "/checkout",
++];
++
++test("all nine approved routes are recorded exactly once", () => {
++  const routes = readJson("../src/config/routes.json");
++  assert.equal(routes.length, paths.length);
++  assert.deepEqual(routes.map((route) => route.href).sort(), [...paths].sort());
++  assert.equal(new Set(routes.map((route) => route.id)).size, routes.length);
++});
++
++test("missing Menu design is clearly marked", () => {
++  const routes = readJson("../src/config/routes.json");
++  assert.equal(routes.find((route) => route.id === "menu").reference, "not-supplied");
++});
++
++test("required app and configuration files exist", () => {
++  for (const path of [
++    "../src/app/layout.tsx", "../src/app/page.tsx", "../src/app/globals.css",
++    "../src/config/site.ts", "../next.config.ts", "../postcss.config.mjs",
++    "../tsconfig.json", "../.env.example",
++  ]) {
++    assert.ok(existsSync(new URL(path, import.meta.url)), `${path} must exist`);
++  }
++});
++
++test("package scripts cover lint, typecheck, test and build", () => {
++  const pkg = readJson("../package.json");
++  for (const key of ["lint", "typecheck", "test", "build"]) {
++    assert.equal(typeof pkg.scripts[key], "string");
++  }
++});
+diff --git a/tsconfig.json b/tsconfig.json
+new file mode 100644
+index 0000000..dbb27bd
+--- /dev/null
++++ b/tsconfig.json
+@@ -0,0 +1,21 @@
++{
++  "compilerOptions": {
++    "target": "ES2017",
++    "lib": ["dom", "dom.iterable", "esnext"],
++    "allowJs": true,
++    "skipLibCheck": true,
++    "strict": true,
++    "noEmit": true,
++    "esModuleInterop": true,
++    "module": "esnext",
++    "moduleResolution": "bundler",
++    "resolveJsonModule": true,
++    "isolatedModules": true,
++    "jsx": "react-jsx",
++    "incremental": true,
++    "plugins": [{ "name": "next" }],
++    "paths": { "@/*": ["./src/*"] }
++  },
++  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
++  "exclude": ["node_modules"]
++}
