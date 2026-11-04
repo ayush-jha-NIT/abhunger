@@ -1,0 +1,5 @@
+# Ensure image asset patches are generated as Git binary patches across platforms.
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary

@@ -73,3 +73,10 @@ See [Part 1 reference specifications](docs/phase-1-visual-foundation.md).
   official logo asset when supplied.
 - The homepage is a component preview, **not** the screenshot-matched final
   Home page. Main page implementations follow in later parts.
+
+
+### Part 2 image library
+
+`public/images/` now contains 38 screenshot-extracted reference images used for design implementation.
+They are not original high-resolution product/venue photography. Run `npm run assets:check`
+and review `docs/phase-2-image-library.md` before using them in public-facing pages.

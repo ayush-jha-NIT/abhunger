@@ -1,0 +1,386 @@
+{
+  "version": 2,
+  "purpose": "Reference screenshot extracts for initial frontend composition; not original HD product photos",
+  "assets": [
+    {
+      "id": "home-hero",
+      "src": "/images/food/home-hero.webp",
+      "alt": "Coffee, fries, cheeseburger, pizza and chocolate brownie in warm café lighting",
+      "category": "hero",
+      "width": 658,
+      "height": 280,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "about-hero",
+      "src": "/images/food/about-hero.webp",
+      "alt": "Cheese pizza with a slice lifted above a wooden serving board",
+      "category": "hero",
+      "width": 600,
+      "height": 255,
+      "sourceReference": "about",
+      "productionReady": false
+    },
+    {
+      "id": "gallery-hero",
+      "src": "/images/food/gallery-hero.webp",
+      "alt": "Cheeseburger, french fries and a creamy iced beverage",
+      "category": "hero",
+      "width": 595,
+      "height": 238,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "contact-hero",
+      "src": "/images/food/contact-hero.webp",
+      "alt": "Cappuccino, brownie and flowers on a cosy café table",
+      "category": "hero",
+      "width": 593,
+      "height": 301,
+      "sourceReference": "contact",
+      "productionReady": false
+    },
+    {
+      "id": "party-hero",
+      "src": "/images/events/party-hero.webp",
+      "alt": "Warmly lit birthday table with gold and white balloons",
+      "category": "hero",
+      "width": 620,
+      "height": 319,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "table-booking-hero",
+      "src": "/images/interiors/table-booking-hero.webp",
+      "alt": "Romantic reserved restaurant table with candle and flowers",
+      "category": "hero",
+      "width": 654,
+      "height": 355,
+      "sourceReference": "booking",
+      "productionReady": false
+    },
+    {
+      "id": "cart-hero",
+      "src": "/images/food/cart-hero.webp",
+      "alt": "Cappuccino, burger, pizza and brownie arranged on a wooden table",
+      "category": "hero",
+      "width": 693,
+      "height": 237,
+      "sourceReference": "cart",
+      "productionReady": false
+    },
+    {
+      "id": "checkout-hero",
+      "src": "/images/food/checkout-hero.webp",
+      "alt": "Cheeseburger and fries on a wooden serving board",
+      "category": "hero",
+      "width": 548,
+      "height": 170,
+      "sourceReference": "checkout",
+      "productionReady": false
+    },
+    {
+      "id": "cheese-pull-pizza",
+      "src": "/images/food/cheese-pull-pizza.webp",
+      "alt": "Pizza slice with stretchy melted cheese",
+      "category": "food",
+      "width": 253,
+      "height": 158,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "veg-momos",
+      "src": "/images/food/veg-momos.webp",
+      "alt": "Steamed momos with red dipping sauce",
+      "category": "food",
+      "width": 245,
+      "height": 158,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "paneer-curry",
+      "src": "/images/food/paneer-curry.webp",
+      "alt": "Paneer curry in a dark ceramic bowl",
+      "category": "food",
+      "width": 243,
+      "height": 158,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "cheesy-pasta",
+      "src": "/images/food/cheesy-pasta.webp",
+      "alt": "Penne pasta coated with cheese sauce",
+      "category": "food",
+      "width": 258,
+      "height": 158,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "cappuccino",
+      "src": "/images/food/cappuccino.webp",
+      "alt": "White cup of cappuccino with latte art",
+      "category": "food",
+      "width": 254,
+      "height": 183,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "chocolate-shake",
+      "src": "/images/food/chocolate-shake.webp",
+      "alt": "Chocolate milkshake topped with whipped cream",
+      "category": "drink",
+      "width": 250,
+      "height": 183,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "blue-lemonade",
+      "src": "/images/food/blue-lemonade.webp",
+      "alt": "Bright blue lemonade with lime and fresh mint",
+      "category": "drink",
+      "width": 243,
+      "height": 183,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "strawberry-shake",
+      "src": "/images/food/strawberry-shake.webp",
+      "alt": "Strawberry shake topped with whipped cream",
+      "category": "drink",
+      "width": 255,
+      "height": 183,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "veg-burger",
+      "src": "/images/food/veg-burger.webp",
+      "alt": "Sesame bun vegetarian burger with lettuce, tomato and cheese",
+      "category": "food",
+      "width": 180,
+      "height": 91,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "grilled-sandwich",
+      "src": "/images/food/grilled-sandwich.webp",
+      "alt": "Grilled club sandwich with fries",
+      "category": "food",
+      "width": 178,
+      "height": 91,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "brownie-ice-cream",
+      "src": "/images/food/brownie-ice-cream.webp",
+      "alt": "Chocolate brownie with vanilla ice cream",
+      "category": "food",
+      "width": 179,
+      "height": 91,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "pasta-primavera",
+      "src": "/images/food/pasta-primavera.webp",
+      "alt": "Pasta tossed with vegetables and fresh herbs",
+      "category": "food",
+      "width": 158,
+      "height": 56,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "cheesecake",
+      "src": "/images/food/cheesecake.webp",
+      "alt": "Cheesecake topped with berries",
+      "category": "food",
+      "width": 151,
+      "height": 56,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "iced-coffee",
+      "src": "/images/food/iced-coffee.webp",
+      "alt": "Cold creamy iced coffee with whipped cream",
+      "category": "drink",
+      "width": 152,
+      "height": 56,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "coffee-beans",
+      "src": "/images/food/coffee-beans.webp",
+      "alt": "Fresh latte art in a coffee cup",
+      "category": "drink",
+      "width": 154,
+      "height": 56,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "exterior",
+      "src": "/images/interiors/exterior.webp",
+      "alt": "AB Hunger Station concept storefront and evening café exterior",
+      "category": "venue",
+      "width": 427,
+      "height": 227,
+      "sourceReference": "about",
+      "productionReady": false
+    },
+    {
+      "id": "main-dining",
+      "src": "/images/interiors/main-dining.webp",
+      "alt": "Comfortable café seating and warm pendant lights",
+      "category": "venue",
+      "width": 252,
+      "height": 152,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "plant-lounge",
+      "src": "/images/interiors/plant-lounge.webp",
+      "alt": "Plant-filled dining room with hanging lights",
+      "category": "venue",
+      "width": 246,
+      "height": 152,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "booth-seating",
+      "src": "/images/interiors/booth-seating.webp",
+      "alt": "Café booths with warm amber lights and greenery",
+      "category": "venue",
+      "width": 258,
+      "height": 152,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "feature-wall",
+      "src": "/images/interiors/feature-wall.webp",
+      "alt": "Cosy café seating beside a decorated feature wall",
+      "category": "venue",
+      "width": 253,
+      "height": 152,
+      "sourceReference": "gallery",
+      "productionReady": false
+    },
+    {
+      "id": "about-wide",
+      "src": "/images/interiors/about-wide.webp",
+      "alt": "Warm café dining hall with wood seating and plants",
+      "category": "venue",
+      "width": 566,
+      "height": 122,
+      "sourceReference": "home",
+      "productionReady": false
+    },
+    {
+      "id": "booking-seating",
+      "src": "/images/interiors/booking-seating.webp",
+      "alt": "Quiet café dining area with warm seating",
+      "category": "venue",
+      "width": 384,
+      "height": 160,
+      "sourceReference": "booking",
+      "productionReady": false
+    },
+    {
+      "id": "party-space",
+      "src": "/images/events/party-space.webp",
+      "alt": "Café party space with decorated green wall and warm pendants",
+      "category": "event",
+      "width": 572,
+      "height": 211,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "birthday-cake",
+      "src": "/images/events/birthday-cake.webp",
+      "alt": "Birthday cake with candles at a celebration",
+      "category": "event",
+      "width": 123,
+      "height": 116,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "anniversary",
+      "src": "/images/events/anniversary.webp",
+      "alt": "Anniversary roses and heart lights",
+      "category": "event",
+      "width": 130,
+      "height": 116,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "kitty-party",
+      "src": "/images/events/kitty-party.webp",
+      "alt": "Pink chairs around a festive small-group table",
+      "category": "event",
+      "width": 132,
+      "height": 116,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "corporate",
+      "src": "/images/events/corporate.webp",
+      "alt": "Dining table ready for a corporate group",
+      "category": "event",
+      "width": 146,
+      "height": 116,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "family-gathering",
+      "src": "/images/events/family-gathering.webp",
+      "alt": "Warm dining space for family gatherings",
+      "category": "event",
+      "width": 131,
+      "height": 116,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "private-celebration",
+      "src": "/images/events/private-celebration.webp",
+      "alt": "Private dining space decorated with balloons",
+      "category": "event",
+      "width": 153,
+      "height": 116,
+      "sourceReference": "party",
+      "productionReady": false
+    },
+    {
+      "id": "celebration-cake",
+      "src": "/images/events/celebration-cake.webp",
+      "alt": "Chocolate cake with candles and gold party balloons",
+      "category": "event",
+      "width": 238,
+      "height": 95,
+      "sourceReference": "party",
+      "productionReady": false
+    }
+  ]
+}

@@ -34,3 +34,9 @@ lighting, party seating, birthday decor, family gathering tables.
 - Never introduce visible fake names, signage or unsupported facility claims.
 - Use consistent warm cinematic lighting without heavy artificial sharpening.
 - Add informative alt text once photos are finalized.
+
+## Part 2 implementation status
+
+38 reference-derived WebP image crops are now catalogued, with typed paths and a validation script.
+They are **not** the full-resolution original photographs requested in the long-term brief.
+See `docs/phase-2-image-library.md` for release-blocking provenance and image-quality checks.

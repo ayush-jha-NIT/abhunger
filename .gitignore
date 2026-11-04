@@ -14,3 +14,7 @@ Thumbs.db
 .vscode/
 .idea/
 npm-debug.log*
+
+# Keep downloaded development patch archives out of production commits.
+*.patch
+*.zip
