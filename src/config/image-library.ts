@@ -54,6 +54,11 @@ export const imageLibrary = {
   "celebration-cake": {"src": "/images/events/celebration-cake.webp", "alt": "Chocolate cake with candles and gold party balloons", "width": 238, "height": 95, "kind": "event", "productionReady": false},
   "fresh-ingredients": {"src": "/images/food/fresh-ingredients.webp", "alt": "Fresh tomatoes, lettuce and seasonal vegetables arranged for food preparation", "width": 177, "height": 145, "kind": "food", "productionReady": false},
   "fast-service": {"src": "/images/food/fast-service.webp", "alt": "Gold service bell on a warm restaurant counter", "width": 181, "height": 146, "kind": "food", "productionReady": false},
+  "about-strip-burger": {"src": "/images/food/about-strip-burger.webp", "alt": "Close-up of a vegetarian burger on a warm café counter", "width": 231, "height": 146, "kind": "food", "productionReady": false},
+  "about-strip-pasta": {"src": "/images/food/about-strip-pasta.webp", "alt": "Pasta with vegetables and herbs in a white bowl", "width": 217, "height": 146, "kind": "food", "productionReady": false},
+  "about-strip-cappuccino": {"src": "/images/food/about-strip-cappuccino.webp", "alt": "Cappuccino with latte art served on a saucer", "width": 202, "height": 146, "kind": "food", "productionReady": false},
+  "about-strip-sandwich": {"src": "/images/food/about-strip-sandwich.webp", "alt": "Toasted sandwich with fries and fresh vegetables", "width": 213, "height": 146, "kind": "food", "productionReady": false},
+  "about-strip-brownie": {"src": "/images/food/about-strip-brownie.webp", "alt": "Chocolate brownie topped with ice cream and chocolate sauce", "width": 223, "height": 146, "kind": "food", "productionReady": false},
 } as const satisfies Record<string, CafeImage>;
 
 export type CafeImageId = keyof typeof imageLibrary;

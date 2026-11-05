@@ -1,0 +1,134 @@
+/* Part 5: About page. Layout and copy hierarchy follow the provided Our Story screenshot. */
+.about-page { overflow: hidden; color: #29140e; background: #fff8f3; }
+.about-page h1,.about-page h2,.about-page h3,.about-page p { margin: 0; }
+.about-page h1,.about-page h2,.about-page h3 { font-family: Georgia, "Times New Roman", serif; }
+.about-page img { object-fit: cover; }
+.about-page a:focus-visible { outline: 3px solid #f27238; outline-offset: 4px; }
+
+/* Compact dark food hero from the reference. */
+.about-hero { min-height: 246px; position: relative; display: flex; align-items: center; background: #26140b; isolation: isolate; overflow: hidden; }
+.about-hero-photo { position: absolute; z-index: -2; inset: 0 0 0 40%; }
+.about-hero-photo img { object-position: 54% center; }
+.about-hero-shade { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,#160b06 0%,rgba(22,10,5,.98) 24%,rgba(31,13,6,.83) 41%,rgba(37,17,9,.22) 68%,rgba(23,9,3,.03) 100%); }
+.about-hero-inner { width: min(1000px, calc(100% - 140px)); padding: 35px 0 30px; }
+.about-hero-copy { width: min(430px, 49%); color: #fff; }
+.about-hero-eyebrow { display: flex; align-items: center; gap: 11px; font: 500 13px/1.2 Arial,sans-serif; letter-spacing: .27em; white-space: nowrap; margin: 0 0 9px !important; }
+.about-hero-eyebrow span { width: 53px; height: 1.5px; background: #e97817; }
+.about-hero h1 { color: #fff; font-size: clamp(39px,4.9vw,55px); line-height: .99; letter-spacing: -.036em; }
+.about-hero h1 em { display: inline-block; color: #f16b16; font-weight: 700; letter-spacing: -.028em; }
+.about-hero-copy > p:last-child { max-width: 372px; margin-top: 14px; font-size: 14px; line-height: 1.35; color: #fff7ef; }
+
+/* The two-column introduction has a large storefront photo and lightly decorated story text. */
+.about-story { position: relative; padding: 23px 0 8px; background: radial-gradient(ellipse at 90% 50%,rgba(228,185,150,.24),transparent 38%),linear-gradient(130deg,#f9e7d7,#fffaf6 56%,#f7e5d8); }
+.about-story-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.03fr); align-items: center; gap: 44px; padding: 0 34px; }
+.about-story-photo { height: 232px; position: relative; border-radius: 21px; overflow: hidden; box-shadow: 0 8px 16px rgba(67,30,12,.1); }
+.about-story-photo img { object-position: center; }
+.about-story-copy { position: relative; z-index: 1; padding-right: 18px; }
+.about-script-label { display: flex; align-items: center; gap: 10px; color: #d94c11; font: italic 700 22px/1.1 Georgia,serif; margin-bottom: 5px !important; }
+.about-script-label svg { color: #391c11; stroke-width: 1.6; }
+.about-story-copy h2 { font-size: clamp(33px,3.8vw,43px); line-height: 1.08; letter-spacing: -.025em; margin-bottom: 10px; }
+.about-story-copy > p:last-child { max-width: 490px; font-size: 13px; line-height: 1.48; }
+
+/* Four equally-sized glass-cream cards. */
+.about-values { padding: 16px 0 23px; background: linear-gradient(165deg,#fffaf6,#f8eadd); }
+.about-title-group { text-align: center; margin-bottom: 14px; }
+.about-section-ornament { display: flex; justify-content: center; align-items: center; gap: 11px; color: #d95118; margin-bottom: 4px; }
+.about-section-ornament span { display: block; height: 1px; width: 47px; background: #f47747; }
+.about-title-group h2 { font-size: clamp(28px,3vw,35px); line-height: 1.12; letter-spacing: -.025em; }
+.about-title-group p { font-size: 12px; margin-top: 3px; }
+.about-values-grid { padding: 0 36px; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 17px; }
+.about-value-card { min-height: 137px; padding: 10px 18px; border: 1px solid rgba(212,192,177,.58); border-radius: 15px; background: rgba(255,250,245,.82); box-shadow: 0 2px 0 rgba(147,102,73,.07), 0 10px 23px rgba(58,26,11,.03); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; }
+.about-value-card > svg { color: #dd490c; margin-bottom: 2px; flex: none; }
+.about-value-card h3 { font-size: 17px; line-height: 1.13; margin-bottom: 6px; letter-spacing: -.018em; }
+.about-value-card p { font-size: 11.5px; line-height: 1.28; max-width: 205px; }
+
+/* Reference has a text card followed by three adjacent venue photos. */
+.about-ambience { padding: 12px 0 18px; background: linear-gradient(135deg,#f5e3d4,#fffaf7 50%,#fae8db); }
+.about-ambience-inner { display: grid; grid-template-columns: 180px minmax(0,1fr); gap: 19px; align-items: center; }
+.about-ambience-copy { padding: 0 0 0 10px; }
+.about-ambience-label { color: #d94b0e; font: italic 700 17px Georgia,serif; }
+.about-ambience-copy h2 { color: #7e2b12; font-size: 31px; letter-spacing: -.04em; line-height: 1.14; }
+.about-short-rule { display: block; width: 40px; height: 2px; background: #de4b14; margin: 9px 0 12px; }
+.about-ambience-copy > p:last-child { font-size: 12px; line-height: 1.38; }
+.about-ambience-photos { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 11px; min-width: 0; }
+.about-ambience-photo { height: 157px; position: relative; border-radius: 12px; overflow: hidden; background: #ecd5c5; }
+
+/* Full-bleed, five-image strip exactly below the ambience section. */
+.about-food-strip { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); height: clamp(104px,13.8vw,152px); overflow: hidden; background: #2b130c; }
+.about-food-strip-photo { min-width: 0; position: relative; }
+.about-food-strip-photo img { object-position: center; }
+
+/* Lower Visit Us pill and directions fallback for unconfirmed map information. */
+.about-visit { background: radial-gradient(ellipse at 90% 50%,rgba(204,147,103,.16),transparent 50%),#f8e8dc; padding: 14px 0 17px; }
+.about-visit-pill { display: grid; grid-template-columns: 1.2fr 1.65fr auto; align-items: center; gap: 24px; min-height: 65px; width: min(856px,100%); margin: auto; padding: 12px 23px; border: 1px solid rgba(255,255,255,.86); border-radius: 23px; background: rgba(255,250,246,.96); box-shadow: 0 5px 13px rgba(67,34,17,.12); }
+.about-visit-pill h2 { display: flex; align-items: center; gap: 13px; color: #7b2b12; white-space: nowrap; font-size: 25px; line-height: 1.1; padding-right: 26px; border-right: 1.5px solid #e9652d; }
+.about-visit-pill h2 svg { color: #e04e0c; flex: none; fill: #e04e0c; stroke: #fff9f3; }
+.about-visit-pill > p { font-size: 12px; line-height: 1.35; }
+.about-visit-action { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 34px; padding: 8px 19px; white-space: nowrap; border-radius: 24px; background: #db470a; color: #fff; font: 700 12px Georgia,serif; transition: background .2s; }
+.about-visit-action:hover { background: #b93d09; }
+
+@media (min-width: 1200px) {
+  .about-hero { min-height: 275px; }
+  .about-hero-inner { width: min(1100px,calc(100% - 130px)); }
+  .about-story-photo { height: 275px; }
+  .about-ambience-photo { height: 185px; }
+}
+@media (max-width: 900px) {
+  .about-hero-inner { width: calc(100% - 84px); }
+  .about-hero-copy { width: 53%; }
+  .about-story-inner { padding-inline: 6px; gap: 27px; }
+  .about-story-copy h2 { font-size: 33px; }
+  .about-values-grid { padding-inline: 8px; gap: 10px; }
+  .about-value-card { padding: 11px 9px; }
+  .about-value-card h3 { font-size: 16px; }
+  .about-ambience-inner { grid-template-columns: 160px minmax(0,1fr); gap: 12px; }
+  .about-ambience-photos { gap: 7px; }
+  .about-visit-pill { gap: 15px; padding-inline: 15px; }
+  .about-visit-pill h2 { font-size: 21px; padding-right: 14px; }
+}
+@media (max-width: 700px) {
+  .about-hero { min-height: 410px; align-items: flex-start; }
+  .about-hero-photo { inset: 0; }
+  .about-hero-photo img { object-position: 58% 60%; }
+  .about-hero-shade { background: linear-gradient(180deg,rgba(24,10,4,.96) 0%,rgba(25,10,5,.93) 38%,rgba(27,11,6,.52) 72%,rgba(20,7,3,.12) 100%); }
+  .about-hero-inner { width: calc(100% - 36px); padding-block: 36px; }
+  .about-hero-copy { width: min(450px,100%); }
+  .about-hero h1 { font-size: clamp(40px,9vw,58px); }
+  .about-hero-copy > p:last-child { font-size: 14px; max-width: 360px; }
+  .about-story { padding: 24px 0 8px; }
+  .about-story-inner { grid-template-columns: 1fr; gap: 23px; }
+  .about-story-photo { height: 250px; }
+  .about-story-copy { padding: 0 5px; }
+  .about-story-copy h2 { font-size: clamp(32px,8vw,42px); }
+  .about-story-copy > p:last-child { font-size: 14px; }
+  .about-values { padding-block: 26px; }
+  .about-values-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .about-value-card { min-height: 165px; padding: 18px 12px; }
+  .about-value-card p { font-size: 12px; }
+  .about-ambience { padding: 22px 0 24px; }
+  .about-ambience-inner { grid-template-columns: 1fr; gap: 16px; }
+  .about-ambience-copy { padding-inline: 0; }
+  .about-ambience-copy > p:last-child { max-width: 420px; }
+  .about-ambience-photos { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .about-ambience-photo { height: 150px; }
+  .about-food-strip { grid-template-columns: repeat(5, minmax(170px,1fr)); overflow-x: auto; height: 155px; overscroll-behavior-x: contain; scroll-snap-type: x proximity; }
+  .about-food-strip-photo { scroll-snap-align: start; }
+  .about-visit { padding: 18px 0 24px; }
+  .about-visit-pill { grid-template-columns: 1fr; gap: 10px; padding: 17px 20px; border-radius: 19px; }
+  .about-visit-pill h2 { border-right: none; padding-right: 0; font-size: 26px; }
+  .about-visit-action { justify-self: start; }
+}
+@media (max-width: 420px) {
+  .about-hero h1 { font-size: 40px; }
+  .about-hero-eyebrow { font-size: 11px; }
+  .about-hero-eyebrow span { width: 38px; }
+  .about-story-photo { height: 210px; }
+  .about-values-grid { gap: 8px; }
+  .about-value-card { padding: 15px 8px; }
+  .about-value-card h3 { font-size: 15px; }
+  .about-value-card p { font-size: 11px; }
+  .about-ambience-photo { height: 118px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-visit-action { transition: none; }
+}

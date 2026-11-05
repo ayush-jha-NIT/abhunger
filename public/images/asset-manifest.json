@@ -401,6 +401,56 @@
       "height": 146,
       "sourceReference": "home",
       "productionReady": false
+    },
+    {
+      "id": "about-strip-burger",
+      "src": "/images/food/about-strip-burger.webp",
+      "alt": "Close-up of a vegetarian burger on a warm café counter",
+      "category": "food",
+      "width": 231,
+      "height": 146,
+      "sourceReference": "about",
+      "productionReady": false
+    },
+    {
+      "id": "about-strip-pasta",
+      "src": "/images/food/about-strip-pasta.webp",
+      "alt": "Pasta with vegetables and herbs in a white bowl",
+      "category": "food",
+      "width": 217,
+      "height": 146,
+      "sourceReference": "about",
+      "productionReady": false
+    },
+    {
+      "id": "about-strip-cappuccino",
+      "src": "/images/food/about-strip-cappuccino.webp",
+      "alt": "Cappuccino with latte art served on a saucer",
+      "category": "food",
+      "width": 202,
+      "height": 146,
+      "sourceReference": "about",
+      "productionReady": false
+    },
+    {
+      "id": "about-strip-sandwich",
+      "src": "/images/food/about-strip-sandwich.webp",
+      "alt": "Toasted sandwich with fries and fresh vegetables",
+      "category": "food",
+      "width": 213,
+      "height": 146,
+      "sourceReference": "about",
+      "productionReady": false
+    },
+    {
+      "id": "about-strip-brownie",
+      "src": "/images/food/about-strip-brownie.webp",
+      "alt": "Chocolate brownie topped with ice cream and chocolate sauce",
+      "category": "food",
+      "width": 223,
+      "height": 146,
+      "sourceReference": "about",
+      "productionReady": false
     }
   ]
 }
