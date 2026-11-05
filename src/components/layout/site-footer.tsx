@@ -54,7 +54,7 @@ export function SiteFooter() {
         </div>
         <div className="site-footer-bottom">
           <span>© {new Date().getFullYear()} {siteConfig.name} | Restaurant &amp; Café. All Rights Reserved.</span>
-          <span className="site-footer-legal">Privacy Policy <span aria-hidden="true">|</span> Terms &amp; Conditions</span>
+          <span className="site-footer-legal"><Link href="/privacy-policy">Privacy Policy</Link> <span aria-hidden="true">|</span> <Link href="/terms-and-conditions">Terms &amp; Conditions</Link></span>
         </div>
       </div>
     </footer>

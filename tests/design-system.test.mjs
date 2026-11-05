@@ -34,9 +34,9 @@ test("brand specification preserves the approved cream orange brown palette", ()
 
 test("unknown contact links are not fabricated", () => {
   const config = read("../src/config/brand.ts");
-  assert.match(config, /whatsapp: null/);
-  assert.match(config, /phone: null/);
-  assert.match(config, /directions: null/);
+  assert.match(config, /restaurant\.whatsapp\s*\?/);
+  assert.match(config, /safePublicUrl\(restaurant\.mapsUrl\)/);
+  assert.doesNotMatch(config, /whatsapp:\s*["\x27]https:\/\//);
 });
 
 test("site layout includes the shared header and footer", () => {

@@ -1,3 +1,5 @@
+import { restaurant } from "@/config/restaurant";
+
 /** Design reference colors sampled/approximated from the supplied page mockups. */
 export const brand = {
   colors: {
@@ -17,11 +19,20 @@ export const brand = {
 /** Screenshot text is a design reference, not verified business operating information. */
 export const referenceBusinessCopy = {
   displayLocation: "Bhagwa Market, Prayagraj",
-  displayHours: "Open Daily: 7:00 AM – 11:00 PM",
+  displayHours: process.env.NEXT_PUBLIC_CONFIRMED_OPENING_HOURS?.trim() || "Hours: confirm with café",
   confirmed: false,
 } as const;
 
-/** Leave contact actions disabled until real destinations are confirmed. */
+/** Only configured, verified HTTPS links are exposed. Unset links remain inactive. */
+const safePublicUrl = (value: string | undefined | null): string | null => {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" ? url.toString() : null;
+  } catch { return null; }
+};
+
+/** Contact links are absent until approved business details are configured. */
 export const contactLinks: {
   instagram: string | null;
   facebook: string | null;
@@ -31,11 +42,11 @@ export const contactLinks: {
   email: string | null;
   phone: string | null;
 } = {
-  instagram: null,
-  facebook: null,
-  youtube: null,
-  whatsapp: null,
-  directions: null,
+  instagram: safePublicUrl(restaurant.instagramUrl),
+  facebook: safePublicUrl(process.env.NEXT_PUBLIC_RESTAURANT_FACEBOOK_URL),
+  youtube: safePublicUrl(process.env.NEXT_PUBLIC_RESTAURANT_YOUTUBE_URL),
+  whatsapp: restaurant.whatsapp ? `https://wa.me/${restaurant.whatsapp}` : null,
+  directions: safePublicUrl(restaurant.mapsUrl),
   email: null,
-  phone: null,
+  phone: restaurant.whatsapp ? `+${restaurant.whatsapp}` : null,
 };

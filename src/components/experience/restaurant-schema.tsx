@@ -1,9 +1,10 @@
 import { restaurant } from "@/config/restaurant";
 import { siteUrl } from "@/config/site";
+import { productionReadiness } from "@/config/production";
 
 export function RestaurantSchema() {
   // No fabricated opening hours, rating, verified phone, or geo-coordinates.
-  if (!process.env.NEXT_PUBLIC_SITE_URL) return null;
+  if (!process.env.NEXT_PUBLIC_SITE_URL || !productionReadiness.ready) return null;
   const schema = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
