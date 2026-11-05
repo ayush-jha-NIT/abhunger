@@ -80,3 +80,11 @@ See [Part 1 reference specifications](docs/phase-1-visual-foundation.md).
 `public/images/` now contains 38 screenshot-extracted reference images used for design implementation.
 They are not original high-resolution product/venue photography. Run `npm run assets:check`
 and review `docs/phase-2-image-library.md` before using them in public-facing pages.
+
+### Part 3 shared layout
+
+Part 3 refines the reference-matched desktop/mobile navigation, builds a real
+cart badge that is ready for the future cart implementation, adds the espresso
+footer logo variant and reusable photo/hero/benefit UI components.
+See [`docs/phase-3-shared-layout.md`](docs/phase-3-shared-layout.md).
+The Home page is still a preview; full page content begins in Part 4.

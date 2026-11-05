@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 116" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">AB Hunger Station</title>
+  <desc id="desc">Dark-footer variant of the temporary vector interpretation of the logo in the supplied design; replace with the official original asset.</desc>
+  <path d="M53 58c17-27 43-41 70-43M141 15c29 2 54 18 69 43" stroke="#E34C0A" stroke-width="2" stroke-linecap="round"/>
+  <g stroke="#FFF8F3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M117 18c-7-10 2-19 11-15 3-7 14-7 18 0 10-1 14 10 8 17 5 6 0 13-7 12h-25c-9 1-14-7-5-14Z" fill="#32170F"/>
+    <path d="M123 24v12h26V24M124 30c7-2 13-1 20 1"/>
+  </g>
+  <text x="106" y="83" font-family="Georgia,'Times New Roman',serif" font-size="72" text-anchor="middle" fill="#FFF8F3">A</text>
+  <text x="156" y="83" font-family="Georgia,'Times New Roman',serif" font-size="72" text-anchor="middle" fill="#E54B0B">B</text>
+  <g stroke="#FFF8F3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m54 73 19-20m-14 2 11 16M56 52l-4-4m4 4 4-4m8 15 5 5"/>
+    <path d="M207 74h33M212 71c0-14 5-21 12-21s12 7 12 21ZM224 47v-4"/>
+    <path d="m237 46 3-7m3 11 5-4" stroke="#E54B0B"/>
+  </g>
+  <text x="130" y="101" text-anchor="middle" fill="#FFF8F3" font-size="19" font-family="Georgia,'Times New Roman',serif" font-weight="700" letter-spacing="-.6">HUNGER STATION</text>
+  <text x="130" y="114" text-anchor="middle" fill="#DA470C" font-size="10.6" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-style="italic">RESTAURANT &amp; CAFÉ</text>
+</svg>
