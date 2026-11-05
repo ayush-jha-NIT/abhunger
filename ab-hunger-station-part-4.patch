@@ -1,0 +1,987 @@
+diff --git a/docs/phase-4-home-page.md b/docs/phase-4-home-page.md
+new file mode 100644
+index 0000000..048981d
+--- /dev/null
++++ b/docs/phase-4-home-page.md
+@@ -0,0 +1,22 @@
++# Part 4 — Home page
++
++The former Part 1 preview at `/` has been replaced by a complete responsive Home composition, using the uploaded AB Hunger Station Home reference as the source of truth.
++
++## Sections
++1. Hero: blended light left copy and reference-derived food image at right; two `/menu` CTAs.
++2. What Makes Us Special: reference-matched fresh-ingredients, interior and service-bell cards.
++3. Popular Menu Highlights: five sample products and the *design reference* sample prices.
++4. About AB Hunger Station: short introduction beside the wide seating image.
++5. Gallery & Ambience: six visual tiles linking to the future Gallery page.
++6. Visit Us Today: exterior image, location details and link to the Contact page pending verified Google Maps directions.
++
++## Known limitations before production
++- **Reference image crops are NOT high-resolution original photographs.** The image library retains `productionReady: false`; replace files with the restaurant's approved originals while retaining paths. The new fresh produce and service-bell crops were extracted from the Home screenshot.
++- **The five listed menu prices have not been verified with the café.** They are held in `src/config/home-content.ts` strictly to match the provided mockup. They must be confirmed or replaced before public launch.
++- The location and opening hours shown are reference copy from an unverified mockup. The Visit card labels hours as pending confirmation.
++- The logo is still the Part 1 approximation.
++- `/menu`, `/about`, `/gallery`, and `/contact` are navigation targets for subsequent roadmap phases and may not render until their pages are implemented.
++- No order is submitted from this page and no external map/phone/WhatsApp destination is fabricated.
++
++## Acceptance
++Run `npm run assets:check`, `npm test`, `npm run lint`, `npm run typecheck`, and `npm run build` in sequence, then `npm run dev` to compare `/` against the supplied Home mockup at 1086px wide and on a mobile viewport.
+diff --git a/public/images/asset-manifest.json b/public/images/asset-manifest.json
+index 73ef478..e33f833 100644
+--- a/public/images/asset-manifest.json
++++ b/public/images/asset-manifest.json
+@@ -381,6 +381,26 @@
+       "height": 95,
+       "sourceReference": "party",
+       "productionReady": false
++    },
++    {
++      "id": "fresh-ingredients",
++      "src": "/images/food/fresh-ingredients.webp",
++      "alt": "Fresh tomatoes, lettuce and seasonal vegetables arranged for food preparation",
++      "category": "food",
++      "width": 177,
++      "height": 145,
++      "sourceReference": "home",
++      "productionReady": false
++    },
++    {
++      "id": "fast-service",
++      "src": "/images/food/fast-service.webp",
++      "alt": "Gold service bell on a warm restaurant counter",
++      "category": "food",
++      "width": 181,
++      "height": 146,
++      "sourceReference": "home",
++      "productionReady": false
+     }
+   ]
+ }
+diff --git a/public/images/food/fast-service.webp b/public/images/food/fast-service.webp
+new file mode 100644
+index 0000000000000000000000000000000000000000..9c803fb354131b7fca7708fe6d51ff5122b4a123
+GIT binary patch
+literal 7256
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/public/images/food/fresh-ingredients.webp b/public/images/food/fresh-ingredients.webp
+new file mode 100644
+index 0000000000000000000000000000000000000000..bb6a124d6f95d68db953da8817a93343edc24b44
+GIT binary patch
+literal 10914
+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
+E09wwFl>h($
+
+literal 0
+HcmV?d00001
+
+diff --git a/scripts/verify-part-4.ps1 b/scripts/verify-part-4.ps1
+new file mode 100644
+index 0000000..bd47f96
+--- /dev/null
++++ b/scripts/verify-part-4.ps1
+@@ -0,0 +1,18 @@
++# Run in the project root: C:\abhunger
++$ErrorActionPreference = "Stop"
++$files = @(
++  "src\app\page.tsx",
++  "src\app\home.css",
++  "src\config\home-content.ts",
++  "public\images\food\fresh-ingredients.webp",
++  "public\images\food\fast-service.webp",
++  "tests\home-page.test.mjs",
++  "docs\phase-4-home-page.md"
++)
++foreach ($file in $files) {
++  if (-not (Test-Path -LiteralPath $file)) { throw "Part 4 missing: $file" }
++  Write-Host "OK  $file" -ForegroundColor Green
++}
++node scripts/validate-assets.mjs
++if ($LASTEXITCODE -ne 0) { throw "Asset validation failed" }
++Write-Host "Part 4 files and asset manifest present. Run npm test, npm run lint, npm run typecheck and npm run build." -ForegroundColor Cyan
+diff --git a/src/app/home.css b/src/app/home.css
+new file mode 100644
+index 0000000..f3836b6
+--- /dev/null
++++ b/src/app/home.css
+@@ -0,0 +1,166 @@
++/* Part 4 — AB Hunger Station home page. Layout guided by the supplied home mockup. */
++.home-page { overflow: hidden; background: #fff8f3; }
++.home-page h1,.home-page h2,.home-page h3 { color: var(--color-ink); }
++.home-page .site-section-heading { margin-bottom: 15px; }
++.home-page .site-section-heading h2 { font-size: clamp(25px,2.65vw,32px); line-height: 1.09; }
++.home-page .site-section-description { max-width: 650px; margin: 4px auto 0; line-height: 1.35; font-size: 12px; }
++.home-page .site-section-ornament { margin-bottom: 4px; }
++.home-page .site-section-ornament > span { background: #ea6c37; }
++.home-page .site-action { min-height: 36px; padding: 8px 19px; font-size: 14px; border-radius: 25px; }
++.home-page .site-action-small { min-height: 30px; padding: 6px 25px; font: 700 12px Arial,Helvetica,sans-serif; }
++.home-section { position: relative; }
++.home-special,.home-highlights,.home-gallery { background-color: #fffaf6; background-image: radial-gradient(ellipse at 2% 4%,rgba(223,124,64,.09),transparent 39%),radial-gradient(ellipse at 98% 90%,rgba(232,153,102,.075),transparent 45%); }
++
++/* Hero: pale copy area blended into the exact photographic right-side cutout. */
++.home-hero { position: relative; isolation: isolate; min-height: clamp(290px,28vw,370px); overflow: hidden; background: #f2dac9; }
++.home-hero-art { position: absolute; z-index: -2; inset: 0 0 0 37%; }
++.home-hero-art img { object-fit: cover; object-position: 49% center; }
++.home-hero-wash { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,#fbefe7 0%,rgba(249,234,221,.98) 20%,rgba(248,226,210,.86) 34%,rgba(246,226,211,.2) 48%,transparent 64%); }
++.home-hero-inner { display: flex; align-items: center; min-height: clamp(290px,28vw,370px); }
++.home-hero-copy { width: min(49%,555px); padding: 26px 0 27px; text-align: center; }
++.home-hero-welcome { display: flex; justify-content: center; align-items: center; gap: 12px; white-space: nowrap; font: italic 33px/1.2 'Brush Script MT','Segoe Script',cursive; color: #21110e; }
++.home-hero-welcome span { width: 44px; height: 1px; background: linear-gradient(90deg,transparent,#d94c15); }
++.home-hero-welcome span:last-child { transform: rotate(180deg); }
++.home-hero h1 { white-space: nowrap; font: 700 clamp(30px,3.65vw,46px)/1 Georgia,'Times New Roman',serif; letter-spacing: -.045em; margin-top: 0; }
++.home-hero-category { margin-top: 2px; color: #c3440b; font: italic 700 clamp(25px,2.85vw,37px)/1.05 Georgia,serif; }
++.home-hero-location { margin-top: 5px; color: #291813; font: italic 700 clamp(14px,1.7vw,20px) Georgia,serif; letter-spacing: .045em; }
++.home-hero-description { max-width: 435px; margin: 13px auto 0; font-size: 13px; line-height: 1.4; }
++.home-hero-actions { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 19px; }
++
++/* Reference 3-across image/text feature panels. */
++.home-special { padding: 6px 0 11px; }
++.home-special-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
++.home-special-card { min-width: 0; display: grid; grid-template-columns: 56% 44%; min-height: 145px; border: 1px solid #f1e0d5; background: rgba(255,252,249,.9); border-radius: 10px; overflow: hidden; box-shadow: 0 7px 16px rgba(58,17,5,.035); }
++.home-special-photo { min-height: 145px; position: relative; }
++.home-special-photo img { object-fit: cover; }
++.home-special-body { min-width: 0; padding: 12px 11px 9px 14px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
++.home-special-icon { color: #dc4b10; flex-shrink: 0; }
++.home-special-body h3 { font: 700 clamp(15px,1.55vw,19px)/1.1 Georgia,serif; letter-spacing: -.025em; margin: 2px 0 6px; }
++.home-special-body p { font-size: 10.5px; line-height: 1.3; color: #31231e; }
++
++/* Five equal-sized menu showcases with reference prices, not approved menu data. */
++.home-highlights { padding: 9px 0 16px; }
++.home-highlights .site-section-heading { margin-bottom: 10px; }
++.home-menu-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
++.home-menu-card { display: block; min-width: 0; text-align: center; border: 1px solid #f1e8e0; border-radius: 10px; overflow: hidden; background: rgba(255,249,244,.75); box-shadow: 0 5px 14px rgb(61 25 9 / 3%); transition: transform .2s,box-shadow .2s; }
++.home-menu-card:hover { transform: translateY(-3px); box-shadow: 0 8px 19px rgb(60 20 8 / 12%); }
++.home-menu-photo { position: relative; height: clamp(90px,10vw,129px); overflow: hidden; }
++.home-menu-photo img { object-fit: cover; }
++.home-menu-info { min-height: 53px; padding: 5px 6px 7px; }
++.home-menu-info h3 { max-width: 170px; min-height: 18px; margin-inline: auto; font: 700 13px/1.08 Georgia,serif; }
++.home-menu-price { color: #ca4004; font: 700 17px/1.15 Georgia,serif; margin-top: 4px; }
++.home-centered-action { display: flex; justify-content: center; padding-top: 9px; }
++
++/* Full-bleed story stripe / original screenshot proportions. */
++.home-about { background: linear-gradient(90deg,#f7e7da,#fff7f0 42%,#fbe8d8); }
++.home-about-layout { display: grid; grid-template-columns: 38% 62%; gap: 0; align-items: center; min-height: 122px; }
++.home-about-copy { padding: 9px 24px 9px 24px; }
++.home-eyebrow { color: #d7470c; font: italic 700 15px/1.15 Georgia,serif; }
++.home-about-copy h2 { font: 700 clamp(20px,2.2vw,27px)/1.05 Georgia,serif; letter-spacing: -.02em; margin: 2px 0 5px; }
++.home-about-copy > p:not(.home-eyebrow) { font-size: 10.5px; line-height: 1.32; }
++.home-text-link { color: #c8420e; display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; margin-top: 5px; }
++.home-text-link:hover { text-decoration: underline; }
++.home-about-photo { position: relative; height: 125px; overflow: hidden; }
++.home-about-photo img { object-fit: cover; }
++
++/* Six inline gallery previews. */
++.home-gallery { padding: 10px 0 12px; }
++.home-gallery .site-section-heading { margin-bottom: 8px; }
++.home-gallery-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 5px; }
++.home-gallery-tile { position: relative; display: block; height: clamp(82px,8vw,115px); border-radius: 7px; overflow: hidden; background: #ead7c8; }
++.home-gallery-tile img { object-fit: cover; transition: transform .3s ease; }
++.home-gallery-tile:hover img { transform: scale(1.06); }
++
++/* Visiting details row. Directions never fake an unverified maps URL. */
++.home-visit { background: linear-gradient(90deg,#f0d9ca,#fff8f2 72%,#f0d3bd); }
++.home-visit-layout { display: grid; grid-template-columns: 34% 66%; align-items: center; gap: 0; min-height: 119px; }
++.home-visit-photo { position: relative; height: 117px; border-radius: 7px; overflow: hidden; }
++.home-visit-photo img { object-fit: cover; }
++.home-visit-main { padding: 10px 8px 7px 26px; }
++.home-visit-intro h2 { display: flex; align-items: center; gap: 7px; font: 700 22px/1.05 Georgia,serif; }
++.home-visit-intro h2 svg { color: #d44a0d; }
++.home-visit-intro p { max-width: 550px; font-size: 11px; line-height: 1.3; margin-top: 2px; }
++.home-visit-info { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 12px; }
++.home-visit-info > div { display: flex; align-items: flex-start; gap: 7px; min-width: 0; }
++.home-visit-info > div svg { flex: none; color: #dc4810; }
++.home-visit-info p { min-width: 0; line-height: 1.25; }
++.home-visit-info strong { display: block; font: 700 11px Georgia,serif; white-space: nowrap; }
++.home-visit-info span { display: block; font-size: 10px; margin-top: 3px; }
++.home-directions { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: #d84808; color: #fff; border-radius: 24px; padding: 8px 13px; font: 700 11px Georgia,serif; white-space: nowrap; }
++.home-directions:hover { background: #ad3505; }
++.home-visit-disclaimer { margin-top: 5px; font-size: 9px; color: #684b3c; }
++
++@media (max-width: 1100px) {
++  .home-hero-copy { width: 52%; }
++  .home-hero h1 { font-size: clamp(30px,3.7vw,41px); }
++  .home-special-body { padding: 7px 6px 7px 10px; }
++  .home-special-body h3 { font-size: 16px; }
++  .home-special-body p { font-size: 9.5px; }
++  .home-about-copy { padding-inline: 12px; }
++  .home-visit-info { gap: 6px; }
++}
++@media (max-width: 850px) {
++  .home-hero-art { left: 34%; }
++  .home-hero-wash { background: linear-gradient(90deg,#fbefe7 0%,rgba(249,234,221,.97) 20%,rgba(248,226,210,.86) 38%,rgba(246,226,211,.1) 72%); }
++  .home-hero-copy { width: 55%; }
++  .home-hero h1 { white-space: normal; }
++  .home-hero-welcome { font-size: 25px; }
++  .home-special-grid { gap: 9px; }
++  .home-special-card { grid-template-columns: 50% 50%; }
++  .home-special-body h3 { font-size: 14px; }
++  .home-special-icon { width: 22px; }
++  .home-menu-grid { gap: 7px; }
++  .home-menu-info h3 { font-size: 12px; }
++  .home-about-layout { grid-template-columns: 43% 57%; }
++  .home-visit-layout { grid-template-columns: 30% 70%; }
++  .home-visit-main { padding-left: 14px; }
++}
++@media (max-width: 700px) {
++  .home-hero,.home-hero-inner { min-height: 470px; }
++  .home-hero-art { inset: 0; }
++  .home-hero-art img { object-position: 45% center; }
++  .home-hero-wash { background: linear-gradient(180deg,rgba(255,243,232,.98) 0%,rgba(255,242,231,.96) 37%,rgba(255,242,231,.55) 62%,rgba(32,10,4,.08) 100%); }
++  .home-hero-inner { align-items: flex-start; justify-content: center; }
++  .home-hero-copy { padding-top: 36px; width: min(100%,480px); }
++  .home-hero h1 { font-size: clamp(31px,8vw,44px); white-space: nowrap; }
++  .home-hero-category { font-size: clamp(24px,6.5vw,31px); }
++  .home-hero-location { font-size: 15px; }
++  .home-hero-description { max-width: 385px; }
++  .home-special,.home-highlights,.home-gallery { padding-block: 23px; }
++  .home-special-grid { grid-template-columns: 1fr; gap: 12px; }
++  .home-special-card { grid-template-columns: 46% 54%; min-height: 135px; }
++  .home-special-photo { min-height: 135px; }
++  .home-special-body { padding: 12px 16px; }
++  .home-special-body h3 { font-size: 21px; }
++  .home-special-body p { font-size: 12px; }
++  .home-menu-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 11px; }
++  .home-menu-photo { height: 140px; }
++  .home-menu-info { min-height: 57px; }
++  .home-menu-info h3 { font-size: 14px; }
++  .home-about-layout { grid-template-columns: 1fr; }
++  .home-about-copy { padding: 24px 8px; }
++  .home-about-copy h2 { font-size: 28px; }
++  .home-about-copy > p:not(.home-eyebrow) { font-size: 13px; line-height: 1.5; }
++  .home-about-photo { height: 185px; }
++  .home-gallery-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
++  .home-gallery-tile { height: 110px; }
++  .home-visit-layout { grid-template-columns: 1fr; }
++  .home-visit-photo { height: 175px; }
++  .home-visit-main { padding: 18px 5px 19px; }
++  .home-visit-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 12px; }
++  .home-directions { justify-self: start; }
++}
++@media (max-width: 390px) {
++  .home-hero h1 { font-size: 29px; }
++  .home-hero-welcome { font-size: 25px; }
++  .home-hero-actions { gap: 8px; }
++  .home-hero-actions .site-action { padding-inline: 13px; font-size: 12px; }
++  .home-menu-photo { height: 115px; }
++  .home-gallery-tile { height: 94px; }
++}
++@media (prefers-reduced-motion: reduce) {
++  .home-menu-card,.home-gallery-tile img { transition: none; }
++  .home-menu-card:hover { transform: none; }
++  .home-gallery-tile:hover img { transform: none; }
++}
++.home-page a:focus-visible { outline: 3px solid #ec7335; outline-offset: 3px; }
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index a14dd9b..6b8398e 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -1,38 +1,238 @@
+-import { ArrowRight, Coffee, Heart, UtensilsCrossed } from "lucide-react";
++import type { Metadata } from "next";
++import Image from "next/image";
++import Link from "next/link";
++import {
++  ArrowRight,
++  ChefHat,
++  Clock3,
++  Camera,
++  ConciergeBell,
++  House,
++  MapPin,
++  Navigation,
++  ShoppingCart,
++  Sprout,
++  Timer,
++  UtensilsCrossed,
++} from "lucide-react";
+ import { ActionLink } from "@/components/ui/action-link";
+-import { FeatureCard } from "@/components/ui/feature-card";
+ import { SectionHeading } from "@/components/ui/section-heading";
+-import { siteConfig } from "@/config/site";
++import { contactLinks, referenceBusinessCopy } from "@/config/brand";
++import { homeGallery, homeHighlights } from "@/config/home-content";
++import { getCafeImage } from "@/config/image-library";
++import "./home.css";
+ 
+-/** Part 1 UI component preview. Part 4 replaces it with the exact Home reference layout and photography. */
+-export default function Home() {
++export const metadata: Metadata = {
++  title: "AB Hunger Station | Restaurant & Café in Prayagraj",
++  description:
++    "Discover coffee, favourites from the kitchen, a warm dining space and celebrations at AB Hunger Station, Prayagraj.",
++};
++
++const features = [
++  {
++    name: "Fresh Ingredients",
++    description: "We use quality ingredients to prepare food that truly satisfies.",
++    image: "fresh-ingredients" as const,
++    Icon: Sprout,
++  },
++  {
++    name: "Cozy Ambience",
++    description: "A comfortable and welcoming space, perfect for meals, coffee, and catch-ups.",
++    image: "main-dining" as const,
++    Icon: House,
++  },
++  {
++    name: "Fast Service",
++    description: "Delicious food, prepared fresh and served with care.",
++    image: "fast-service" as const,
++    Icon: Timer,
++  },
++];
++
++function HomeHero() {
++  const image = getCafeImage("home-hero");
+   return (
+-    <main>
+-      <section className="site-preview-hero">
+-        <div className="site-container site-preview-hero-content">
+-          <p className="site-script">Welcome to</p>
+-          <h1>{siteConfig.name}</h1>
+-          <p className="site-preview-subtitle">Restaurant &amp; Café</p>
+-          <p className="site-preview-description">{siteConfig.tagline}</p>
+-          <div className="site-preview-actions">
+-            <ActionLink href="/menu"><UtensilsCrossed size={18} aria-hidden="true"/> View Menu</ActionLink>
+-            <ActionLink href="/book-table" variant="outline">Book a Table <ArrowRight size={17} aria-hidden="true"/></ActionLink>
++    <section className="home-hero" aria-labelledby="home-title">
++      <div className="home-hero-art">
++        <Image
++          src={image.src}
++          alt={image.alt}
++          fill
++          priority
++          sizes="(max-width: 700px) 100vw, 64vw"
++          className="home-hero-image"
++        />
++      </div>
++      <div className="home-hero-wash" aria-hidden="true" />
++      <div className="site-container home-hero-inner">
++        <div className="home-hero-copy">
++          <div className="home-hero-welcome"><span aria-hidden="true" />Welcome to<span aria-hidden="true" /></div>
++          <h1 id="home-title">AB Hunger Station</h1>
++          <p className="home-hero-category">Restaurant &amp; Café</p>
++          <p className="home-hero-location">{referenceBusinessCopy.displayLocation}</p>
++          <p className="home-hero-description">
++            A perfect place to enjoy delicious food, aromatic coffee and a cozy café ambience in the heart of Prayagraj.
++          </p>
++          <div className="home-hero-actions">
++            <ActionLink href="/menu"><UtensilsCrossed size={18} aria-hidden="true" /> View Menu</ActionLink>
++            <ActionLink href="/menu" variant="outline"><ShoppingCart size={18} aria-hidden="true" /> Order Now</ActionLink>
+           </div>
+         </div>
+-        <div className="site-preview-watermark" aria-hidden="true">PHASE 1 · IMAGE ASSETS PENDING</div>
+-      </section>
+-      <section className="site-container site-preview-features">
++      </div>
++    </section>
++  );
++}
++
++function SpecialSection() {
++  return (
++    <section className="home-section home-special" aria-labelledby="special-heading">
++      <div className="site-container">
++        <SectionHeading
++          icon={<ChefHat size={31} strokeWidth={1.5} />}
++          title={<span id="special-heading">What Makes Us Special</span>}
++          description="More than just a café, we're a restaurant and café that brings together great food, warm hospitality, and a space to relax and enjoy."
++        />
++        <div className="home-special-grid">
++          {features.map(({ name, description, image, Icon }) => {
++            const photo = getCafeImage(image);
++            return (
++              <article className="home-special-card" key={name}>
++                <div className="home-special-photo">
++                  <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 700px) 46vw, (max-width: 1000px) 28vw, 175px" />
++                </div>
++                <div className="home-special-body">
++                  <Icon className="home-special-icon" size={27} aria-hidden="true" strokeWidth={2.3} />
++                  <h3>{name}</h3>
++                  <p>{description}</p>
++                </div>
++              </article>
++            );
++          })}
++        </div>
++      </div>
++    </section>
++  );
++}
++
++function HighlightsSection() {
++  return (
++    <section className="home-section home-highlights" aria-labelledby="highlights-heading">
++      <div className="site-container">
++        <SectionHeading
++          icon={<ConciergeBell size={29} strokeWidth={1.6} />}
++          title={<span id="highlights-heading">Popular Menu Highlights</span>}
++          description="Our Chef's Picks – A delicious selection of our most loved dishes."
++        />
++        <div className="home-menu-grid">
++          {homeHighlights.map((item) => {
++            const photo = getCafeImage(item.image);
++            return (
++              <Link href="/menu" className="home-menu-card" key={item.name} aria-label={`Explore ${item.name} on our menu`}>
++                <div className="home-menu-photo">
++                  <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 500px) 45vw, (max-width: 850px) 31vw, 18vw" />
++                </div>
++                <div className="home-menu-info">
++                  <h3>{item.name}</h3>
++                  <p className="home-menu-price">₹{item.referencePriceRupees}</p>
++                </div>
++              </Link>
++            );
++          })}
++        </div>
++        <div className="home-centered-action">
++          <ActionLink href="/menu" size="small">View Full Menu <ArrowRight size={17} aria-hidden="true" /></ActionLink>
++        </div>
++      </div>
++    </section>
++  );
++}
++
++function AboutSection() {
++  const photo = getCafeImage("about-wide");
++  return (
++    <section className="home-about" aria-labelledby="home-about-heading">
++      <div className="site-container home-about-layout">
++        <div className="home-about-copy">
++          <p className="home-eyebrow">Our Story</p>
++          <h2 id="home-about-heading">About AB Hunger Station</h2>
++          <p>
++            AB Hunger Station is a restaurant &amp; café located in Bhagwa Market, Prayagraj.
++            We&apos;re passionate about serving a delightful range of food and beverages, from
++            coffee and comforting meals to fresh desserts, in a warm and friendly environment.
++          </p>
++          <Link href="/about" className="home-text-link">Discover our story <ArrowRight size={14} aria-hidden="true" /></Link>
++        </div>
++        <div className="home-about-photo">
++          <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 100vw, 58vw" />
++        </div>
++      </div>
++    </section>
++  );
++}
++
++function GallerySection() {
++  return (
++    <section className="home-section home-gallery" aria-labelledby="home-gallery-heading">
++      <div className="site-container">
+         <SectionHeading
+-          icon={<UtensilsCrossed size={27} />}
+-          title="What Makes Us Special"
+-          description="A preview of reusable cards, typography and spacing. The finished Home design and photographs will be added in Phase 4."
++          icon={<Camera size={29} strokeWidth={1.5} />}
++          title={<span id="home-gallery-heading">Gallery &amp; Ambience</span>}
++          description="A glimpse of our food, drinks and the welcoming space at AB Hunger Station."
+         />
+-        <div className="site-feature-grid">
+-          <FeatureCard icon={<UtensilsCrossed size={32}/>} title="Fresh Ingredients" description="Menu content and original food photography will be connected in the dedicated menu phase." />
+-          <FeatureCard icon={<Coffee size={32}/>} title="Cozy Ambience" description="Interior images will be added to match the warm cafe atmosphere in the reference." />
+-          <FeatureCard icon={<Heart size={32}/>} title="Warm Hospitality" description="This is a design-system preview, not the completed reference-matched website." />
++        <div className="home-gallery-grid">
++          {homeGallery.map(({ image, label }) => {
++            const photo = getCafeImage(image);
++            return (
++              <Link href="/gallery" className="home-gallery-tile" key={image} aria-label={`Open gallery: ${label}`}>
++                <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 480px) 45vw, (max-width: 800px) 31vw, 17vw" />
++              </Link>
++            );
++          })}
+         </div>
+-      </section>
++      </div>
++    </section>
++  );
++}
++
++function VisitSection() {
++  const photo = getCafeImage("exterior");
++  return (
++    <section className="home-visit" aria-labelledby="home-visit-heading">
++      <div className="site-container home-visit-layout">
++        <div className="home-visit-photo">
++          <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 100vw, 34vw" />
++        </div>
++        <div className="home-visit-main">
++          <div className="home-visit-intro">
++            <h2 id="home-visit-heading"><MapPin size={25} aria-hidden="true" /> Visit Us Today</h2>
++            <p>Drop by AB Hunger Station at Bhagwa Market, Prayagraj, and enjoy great food, coffee and a relaxing café experience.</p>
++          </div>
++          <div className="home-visit-info">
++            <div><MapPin size={23} aria-hidden="true" /><p><strong>Our Location</strong><span>{referenceBusinessCopy.displayLocation}</span></p></div>
++            <div><Navigation size={23} aria-hidden="true" /><p><strong>Find Us</strong><span>In Prayagraj</span></p></div>
++            <div><Clock3 size={23} aria-hidden="true" /><p><strong>Opening Hours*</strong><span>{referenceBusinessCopy.displayHours.replace("Open Daily: ", "")}</span></p></div>
++            {contactLinks.directions ? (
++              <a className="home-directions" href={contactLinks.directions} target="_blank" rel="noopener noreferrer">Get Directions <ArrowRight size={14} aria-hidden="true" /></a>
++            ) : (
++              <Link className="home-directions" href="/contact">View Location <ArrowRight size={14} aria-hidden="true" /></Link>
++            )}
++          </div>
++          <p className="home-visit-disclaimer">*Hours shown from the design reference; confirmation pending.</p>
++        </div>
++      </div>
++    </section>
++  );
++}
++
++export default function Home() {
++  return (
++    <main id="main-content" className="home-page">
++      <HomeHero />
++      <SpecialSection />
++      <HighlightsSection />
++      <AboutSection />
++      <GallerySection />
++      <VisitSection />
+     </main>
+   );
+ }
+diff --git a/src/config/home-content.ts b/src/config/home-content.ts
+new file mode 100644
+index 0000000..a72f658
+--- /dev/null
++++ b/src/config/home-content.ts
+@@ -0,0 +1,29 @@
++/**
++ * Home page display copy and reference-only menu highlights.
++ * IMPORTANT: prices are transcribed from the supplied UI mockup, not a confirmed
++ * restaurant menu. Replace with client-approved prices before public launch.
++ */
++import type { CafeImageId } from "@/config/image-library";
++
++export type Highlight = {
++  name: string;
++  image: CafeImageId;
++  referencePriceRupees: number;
++};
++
++export const homeHighlights: readonly Highlight[] = [
++  { name: "Cappuccino", image: "cappuccino", referencePriceRupees: 149 },
++  { name: "Veg Burger", image: "veg-burger", referencePriceRupees: 179 },
++  { name: "Cheese Pizza", image: "cheese-pull-pizza", referencePriceRupees: 299 },
++  { name: "Grilled Sandwich", image: "grilled-sandwich", referencePriceRupees: 169 },
++  { name: "Chocolate Brownie with Ice Cream", image: "brownie-ice-cream", referencePriceRupees: 199 },
++] as const;
++
++export const homeGallery: readonly { image: CafeImageId; label: string }[] = [
++  { image: "cappuccino", label: "Freshly brewed cappuccino" },
++  { image: "cheesy-pasta", label: "Delicious pasta" },
++  { image: "main-dining", label: "Warm and welcoming dining room" },
++  { image: "cheesecake", label: "Creamy dessert with berries" },
++  { image: "booth-seating", label: "Comfortable café seating" },
++  { image: "iced-coffee", label: "Chilled café drink" },
++] as const;
+diff --git a/src/config/image-library.ts b/src/config/image-library.ts
+index fdd38ab..fc5a92f 100644
+--- a/src/config/image-library.ts
++++ b/src/config/image-library.ts
+@@ -52,6 +52,8 @@ export const imageLibrary = {
+   "family-gathering": {"src": "/images/events/family-gathering.webp", "alt": "Warm dining space for family gatherings", "width": 131, "height": 116, "kind": "event", "productionReady": false},
+   "private-celebration": {"src": "/images/events/private-celebration.webp", "alt": "Private dining space decorated with balloons", "width": 153, "height": 116, "kind": "event", "productionReady": false},
+   "celebration-cake": {"src": "/images/events/celebration-cake.webp", "alt": "Chocolate cake with candles and gold party balloons", "width": 238, "height": 95, "kind": "event", "productionReady": false},
++  "fresh-ingredients": {"src": "/images/food/fresh-ingredients.webp", "alt": "Fresh tomatoes, lettuce and seasonal vegetables arranged for food preparation", "width": 177, "height": 145, "kind": "food", "productionReady": false},
++  "fast-service": {"src": "/images/food/fast-service.webp", "alt": "Gold service bell on a warm restaurant counter", "width": 181, "height": 146, "kind": "food", "productionReady": false},
+ } as const satisfies Record<string, CafeImage>;
+ 
+ export type CafeImageId = keyof typeof imageLibrary;
+diff --git a/tests/home-page.test.mjs b/tests/home-page.test.mjs
+new file mode 100644
+index 0000000..dd331c7
+--- /dev/null
++++ b/tests/home-page.test.mjs
+@@ -0,0 +1,40 @@
++import assert from "node:assert/strict";
++import { existsSync, readFileSync } from "node:fs";
++import { test } from "node:test";
++
++const read = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
++
++test("Part 4 replaces the preview with all six screenshot home sections", () => {
++  const page = read("../src/app/page.tsx");
++  for (const component of ["HomeHero", "SpecialSection", "HighlightsSection", "AboutSection", "GallerySection", "VisitSection"]) {
++    assert.match(page, new RegExp(`<${component}\\s*/>`), `Missing ${component}`);
++  }
++  for (const title of ["AB Hunger Station", "What Makes Us Special", "Popular Menu Highlights", "About AB Hunger Station", "Gallery &", "Visit Us Today"]) {
++    assert.ok(page.includes(title), `Expected ${title}`);
++  }
++  assert.doesNotMatch(page, /IMAGE ASSETS PENDING|site-preview-hero/);
++  assert.match(page, /priority/);
++});
++
++test("reference prices remain identified as unconfirmed display copy", () => {
++  const content = read("../src/config/home-content.ts");
++  assert.match(content, /not a confirmed/);
++  for (const value of [149,179,299,169,199]) assert.ok(content.includes(`referencePriceRupees: ${value}`));
++});
++
++test("Home-specific image crops are present and indexed", () => {
++  for (const name of ["fresh-ingredients","fast-service"]) {
++    assert.ok(existsSync(new URL(`../public/images/food/${name}.webp`, import.meta.url)));
++    assert.ok(read("../src/config/image-library.ts").includes(`"${name}"`));
++    assert.ok(read("../public/images/asset-manifest.json").includes(`"id": "${name}"`));
++  }
++});
++
++test("Home design is responsive and does not expose fabricated contact links", () => {
++  const css=read("../src/app/home.css");
++  assert.match(css, /max-width: 700px/);
++  assert.match(css, /max-width: 390px/);
++  const page=read("../src/app/page.tsx");
++  assert.match(page, /contactLinks\.directions\s*\?/);
++  assert.doesNotMatch(page, /wa\.me\/\d+|maps\.google\.com\/maps\/\?/);
++});

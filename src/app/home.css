@@ -1,0 +1,166 @@
+/* Part 4 — AB Hunger Station home page. Layout guided by the supplied home mockup. */
+.home-page { overflow: hidden; background: #fff8f3; }
+.home-page h1,.home-page h2,.home-page h3 { color: var(--color-ink); }
+.home-page .site-section-heading { margin-bottom: 15px; }
+.home-page .site-section-heading h2 { font-size: clamp(25px,2.65vw,32px); line-height: 1.09; }
+.home-page .site-section-description { max-width: 650px; margin: 4px auto 0; line-height: 1.35; font-size: 12px; }
+.home-page .site-section-ornament { margin-bottom: 4px; }
+.home-page .site-section-ornament > span { background: #ea6c37; }
+.home-page .site-action { min-height: 36px; padding: 8px 19px; font-size: 14px; border-radius: 25px; }
+.home-page .site-action-small { min-height: 30px; padding: 6px 25px; font: 700 12px Arial,Helvetica,sans-serif; }
+.home-section { position: relative; }
+.home-special,.home-highlights,.home-gallery { background-color: #fffaf6; background-image: radial-gradient(ellipse at 2% 4%,rgba(223,124,64,.09),transparent 39%),radial-gradient(ellipse at 98% 90%,rgba(232,153,102,.075),transparent 45%); }
+
+/* Hero: pale copy area blended into the exact photographic right-side cutout. */
+.home-hero { position: relative; isolation: isolate; min-height: clamp(290px,28vw,370px); overflow: hidden; background: #f2dac9; }
+.home-hero-art { position: absolute; z-index: -2; inset: 0 0 0 37%; }
+.home-hero-art img { object-fit: cover; object-position: 49% center; }
+.home-hero-wash { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,#fbefe7 0%,rgba(249,234,221,.98) 20%,rgba(248,226,210,.86) 34%,rgba(246,226,211,.2) 48%,transparent 64%); }
+.home-hero-inner { display: flex; align-items: center; min-height: clamp(290px,28vw,370px); }
+.home-hero-copy { width: min(49%,555px); padding: 26px 0 27px; text-align: center; }
+.home-hero-welcome { display: flex; justify-content: center; align-items: center; gap: 12px; white-space: nowrap; font: italic 33px/1.2 'Brush Script MT','Segoe Script',cursive; color: #21110e; }
+.home-hero-welcome span { width: 44px; height: 1px; background: linear-gradient(90deg,transparent,#d94c15); }
+.home-hero-welcome span:last-child { transform: rotate(180deg); }
+.home-hero h1 { white-space: nowrap; font: 700 clamp(30px,3.65vw,46px)/1 Georgia,'Times New Roman',serif; letter-spacing: -.045em; margin-top: 0; }
+.home-hero-category { margin-top: 2px; color: #c3440b; font: italic 700 clamp(25px,2.85vw,37px)/1.05 Georgia,serif; }
+.home-hero-location { margin-top: 5px; color: #291813; font: italic 700 clamp(14px,1.7vw,20px) Georgia,serif; letter-spacing: .045em; }
+.home-hero-description { max-width: 435px; margin: 13px auto 0; font-size: 13px; line-height: 1.4; }
+.home-hero-actions { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 19px; }
+
+/* Reference 3-across image/text feature panels. */
+.home-special { padding: 6px 0 11px; }
+.home-special-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
+.home-special-card { min-width: 0; display: grid; grid-template-columns: 56% 44%; min-height: 145px; border: 1px solid #f1e0d5; background: rgba(255,252,249,.9); border-radius: 10px; overflow: hidden; box-shadow: 0 7px 16px rgba(58,17,5,.035); }
+.home-special-photo { min-height: 145px; position: relative; }
+.home-special-photo img { object-fit: cover; }
+.home-special-body { min-width: 0; padding: 12px 11px 9px 14px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.home-special-icon { color: #dc4b10; flex-shrink: 0; }
+.home-special-body h3 { font: 700 clamp(15px,1.55vw,19px)/1.1 Georgia,serif; letter-spacing: -.025em; margin: 2px 0 6px; }
+.home-special-body p { font-size: 10.5px; line-height: 1.3; color: #31231e; }
+
+/* Five equal-sized menu showcases with reference prices, not approved menu data. */
+.home-highlights { padding: 9px 0 16px; }
+.home-highlights .site-section-heading { margin-bottom: 10px; }
+.home-menu-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
+.home-menu-card { display: block; min-width: 0; text-align: center; border: 1px solid #f1e8e0; border-radius: 10px; overflow: hidden; background: rgba(255,249,244,.75); box-shadow: 0 5px 14px rgb(61 25 9 / 3%); transition: transform .2s,box-shadow .2s; }
+.home-menu-card:hover { transform: translateY(-3px); box-shadow: 0 8px 19px rgb(60 20 8 / 12%); }
+.home-menu-photo { position: relative; height: clamp(90px,10vw,129px); overflow: hidden; }
+.home-menu-photo img { object-fit: cover; }
+.home-menu-info { min-height: 53px; padding: 5px 6px 7px; }
+.home-menu-info h3 { max-width: 170px; min-height: 18px; margin-inline: auto; font: 700 13px/1.08 Georgia,serif; }
+.home-menu-price { color: #ca4004; font: 700 17px/1.15 Georgia,serif; margin-top: 4px; }
+.home-centered-action { display: flex; justify-content: center; padding-top: 9px; }
+
+/* Full-bleed story stripe / original screenshot proportions. */
+.home-about { background: linear-gradient(90deg,#f7e7da,#fff7f0 42%,#fbe8d8); }
+.home-about-layout { display: grid; grid-template-columns: 38% 62%; gap: 0; align-items: center; min-height: 122px; }
+.home-about-copy { padding: 9px 24px 9px 24px; }
+.home-eyebrow { color: #d7470c; font: italic 700 15px/1.15 Georgia,serif; }
+.home-about-copy h2 { font: 700 clamp(20px,2.2vw,27px)/1.05 Georgia,serif; letter-spacing: -.02em; margin: 2px 0 5px; }
+.home-about-copy > p:not(.home-eyebrow) { font-size: 10.5px; line-height: 1.32; }
+.home-text-link { color: #c8420e; display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; margin-top: 5px; }
+.home-text-link:hover { text-decoration: underline; }
+.home-about-photo { position: relative; height: 125px; overflow: hidden; }
+.home-about-photo img { object-fit: cover; }
+
+/* Six inline gallery previews. */
+.home-gallery { padding: 10px 0 12px; }
+.home-gallery .site-section-heading { margin-bottom: 8px; }
+.home-gallery-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 5px; }
+.home-gallery-tile { position: relative; display: block; height: clamp(82px,8vw,115px); border-radius: 7px; overflow: hidden; background: #ead7c8; }
+.home-gallery-tile img { object-fit: cover; transition: transform .3s ease; }
+.home-gallery-tile:hover img { transform: scale(1.06); }
+
+/* Visiting details row. Directions never fake an unverified maps URL. */
+.home-visit { background: linear-gradient(90deg,#f0d9ca,#fff8f2 72%,#f0d3bd); }
+.home-visit-layout { display: grid; grid-template-columns: 34% 66%; align-items: center; gap: 0; min-height: 119px; }
+.home-visit-photo { position: relative; height: 117px; border-radius: 7px; overflow: hidden; }
+.home-visit-photo img { object-fit: cover; }
+.home-visit-main { padding: 10px 8px 7px 26px; }
+.home-visit-intro h2 { display: flex; align-items: center; gap: 7px; font: 700 22px/1.05 Georgia,serif; }
+.home-visit-intro h2 svg { color: #d44a0d; }
+.home-visit-intro p { max-width: 550px; font-size: 11px; line-height: 1.3; margin-top: 2px; }
+.home-visit-info { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 12px; }
+.home-visit-info > div { display: flex; align-items: flex-start; gap: 7px; min-width: 0; }
+.home-visit-info > div svg { flex: none; color: #dc4810; }
+.home-visit-info p { min-width: 0; line-height: 1.25; }
+.home-visit-info strong { display: block; font: 700 11px Georgia,serif; white-space: nowrap; }
+.home-visit-info span { display: block; font-size: 10px; margin-top: 3px; }
+.home-directions { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: #d84808; color: #fff; border-radius: 24px; padding: 8px 13px; font: 700 11px Georgia,serif; white-space: nowrap; }
+.home-directions:hover { background: #ad3505; }
+.home-visit-disclaimer { margin-top: 5px; font-size: 9px; color: #684b3c; }
+
+@media (max-width: 1100px) {
+  .home-hero-copy { width: 52%; }
+  .home-hero h1 { font-size: clamp(30px,3.7vw,41px); }
+  .home-special-body { padding: 7px 6px 7px 10px; }
+  .home-special-body h3 { font-size: 16px; }
+  .home-special-body p { font-size: 9.5px; }
+  .home-about-copy { padding-inline: 12px; }
+  .home-visit-info { gap: 6px; }
+}
+@media (max-width: 850px) {
+  .home-hero-art { left: 34%; }
+  .home-hero-wash { background: linear-gradient(90deg,#fbefe7 0%,rgba(249,234,221,.97) 20%,rgba(248,226,210,.86) 38%,rgba(246,226,211,.1) 72%); }
+  .home-hero-copy { width: 55%; }
+  .home-hero h1 { white-space: normal; }
+  .home-hero-welcome { font-size: 25px; }
+  .home-special-grid { gap: 9px; }
+  .home-special-card { grid-template-columns: 50% 50%; }
+  .home-special-body h3 { font-size: 14px; }
+  .home-special-icon { width: 22px; }
+  .home-menu-grid { gap: 7px; }
+  .home-menu-info h3 { font-size: 12px; }
+  .home-about-layout { grid-template-columns: 43% 57%; }
+  .home-visit-layout { grid-template-columns: 30% 70%; }
+  .home-visit-main { padding-left: 14px; }
+}
+@media (max-width: 700px) {
+  .home-hero,.home-hero-inner { min-height: 470px; }
+  .home-hero-art { inset: 0; }
+  .home-hero-art img { object-position: 45% center; }
+  .home-hero-wash { background: linear-gradient(180deg,rgba(255,243,232,.98) 0%,rgba(255,242,231,.96) 37%,rgba(255,242,231,.55) 62%,rgba(32,10,4,.08) 100%); }
+  .home-hero-inner { align-items: flex-start; justify-content: center; }
+  .home-hero-copy { padding-top: 36px; width: min(100%,480px); }
+  .home-hero h1 { font-size: clamp(31px,8vw,44px); white-space: nowrap; }
+  .home-hero-category { font-size: clamp(24px,6.5vw,31px); }
+  .home-hero-location { font-size: 15px; }
+  .home-hero-description { max-width: 385px; }
+  .home-special,.home-highlights,.home-gallery { padding-block: 23px; }
+  .home-special-grid { grid-template-columns: 1fr; gap: 12px; }
+  .home-special-card { grid-template-columns: 46% 54%; min-height: 135px; }
+  .home-special-photo { min-height: 135px; }
+  .home-special-body { padding: 12px 16px; }
+  .home-special-body h3 { font-size: 21px; }
+  .home-special-body p { font-size: 12px; }
+  .home-menu-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 11px; }
+  .home-menu-photo { height: 140px; }
+  .home-menu-info { min-height: 57px; }
+  .home-menu-info h3 { font-size: 14px; }
+  .home-about-layout { grid-template-columns: 1fr; }
+  .home-about-copy { padding: 24px 8px; }
+  .home-about-copy h2 { font-size: 28px; }
+  .home-about-copy > p:not(.home-eyebrow) { font-size: 13px; line-height: 1.5; }
+  .home-about-photo { height: 185px; }
+  .home-gallery-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
+  .home-gallery-tile { height: 110px; }
+  .home-visit-layout { grid-template-columns: 1fr; }
+  .home-visit-photo { height: 175px; }
+  .home-visit-main { padding: 18px 5px 19px; }
+  .home-visit-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 12px; }
+  .home-directions { justify-self: start; }
+}
+@media (max-width: 390px) {
+  .home-hero h1 { font-size: 29px; }
+  .home-hero-welcome { font-size: 25px; }
+  .home-hero-actions { gap: 8px; }
+  .home-hero-actions .site-action { padding-inline: 13px; font-size: 12px; }
+  .home-menu-photo { height: 115px; }
+  .home-gallery-tile { height: 94px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-menu-card,.home-gallery-tile img { transition: none; }
+  .home-menu-card:hover { transform: none; }
+  .home-gallery-tile:hover img { transform: none; }
+}
+.home-page a:focus-visible { outline: 3px solid #ec7335; outline-offset: 3px; }

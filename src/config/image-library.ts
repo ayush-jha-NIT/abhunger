@@ -52,6 +52,8 @@ export const imageLibrary = {
   "family-gathering": {"src": "/images/events/family-gathering.webp", "alt": "Warm dining space for family gatherings", "width": 131, "height": 116, "kind": "event", "productionReady": false},
   "private-celebration": {"src": "/images/events/private-celebration.webp", "alt": "Private dining space decorated with balloons", "width": 153, "height": 116, "kind": "event", "productionReady": false},
   "celebration-cake": {"src": "/images/events/celebration-cake.webp", "alt": "Chocolate cake with candles and gold party balloons", "width": 238, "height": 95, "kind": "event", "productionReady": false},
+  "fresh-ingredients": {"src": "/images/food/fresh-ingredients.webp", "alt": "Fresh tomatoes, lettuce and seasonal vegetables arranged for food preparation", "width": 177, "height": 145, "kind": "food", "productionReady": false},
+  "fast-service": {"src": "/images/food/fast-service.webp", "alt": "Gold service bell on a warm restaurant counter", "width": 181, "height": 146, "kind": "food", "productionReady": false},
 } as const satisfies Record<string, CafeImage>;
 
 export type CafeImageId = keyof typeof imageLibrary;
