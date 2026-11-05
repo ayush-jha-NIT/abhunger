@@ -4,7 +4,7 @@ import { Camera, Coffee, Grid2X2, Heart, Instagram, Sofa, Utensils } from "lucid
 import { getCafeImage, type CafeImageId } from "@/config/image-library";
 import { restaurant } from "@/config/restaurant";
 import Image from "next/image";
-import { ExperienceHeading, ExperienceHero, RoundedLink } from "@/components/experience/primitives";
+import { ExperienceHero, RoundedLink } from "@/components/experience/primitives";
 
 const groups = [
   { title: "Our Food", id: "Food", icon: Utensils, images: ["cheese-pull-pizza", "veg-momos", "paneer-curry", "cheesy-pasta", "veg-burger", "grilled-sandwich", "pasta-primavera", "brownie-ice-cream"] as CafeImageId[] },

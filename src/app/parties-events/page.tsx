@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays, Cake, Camera, ChefHat, Headphones, Heart, Music, PartyPopper, Sparkles, UtensilsCrossed, UsersRound } from "lucide-react";
-import { ExperienceHero, ExperienceHeading, Photo, RoundedLink } from "@/components/experience/primitives";
+import { ExperienceHero, ExperienceHeading, Photo } from "@/components/experience/primitives";
 import { EventForm } from "./event-form";
 import "../experience.css";
 export const metadata: Metadata = { title: "Parties & Events", description: "Plan birthdays, anniversaries, kitty parties and family gatherings at AB Hunger Station, Prayagraj." };

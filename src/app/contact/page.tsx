@@ -23,6 +23,6 @@ export default function ContactPage(){return <main className="experience-page co
       <div className="contact-map-links">{restaurant.mapsUrl ? <RoundedLink href={restaurant.mapsUrl} external outline>Get Directions</RoundedLink> : <p>Official directions link pending confirmation</p>}</div>
     </div>
   </section>
-  <section className="site-container contact-visit"><Photo image="main-dining"/><div><ExperienceHeading title="Plan a Visit Today"/><p>Whether it's a quick coffee, a casual meal, or time with friends, AB Hunger Station offers a welcoming café experience.</p></div></section>
+  <section className="site-container contact-visit"><Photo image="main-dining"/><div><ExperienceHeading title="Plan a Visit Today"/><p>Whether it&apos;s a quick coffee, a casual meal, or time with friends, AB Hunger Station offers a welcoming café experience.</p></div></section>
   <section className="site-container contact-benefits">{benefits.map(({Icon,title,text})=><div key={title}><Icon size={28}/><h3>{title}</h3><p>{text}</p></div>)}</section>
 </main>;}
