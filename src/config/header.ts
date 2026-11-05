@@ -6,7 +6,7 @@ import routes from "@/config/routes.json";
  * This configuration makes that deliberate instead of copying navbar markup.
  */
 const infoPages = new Set(["/", "/about", "/gallery", "/contact"]);
-const cartPages = new Set(["/book-table", "/cart", "/checkout"]);
+const cartPages = new Set(["/menu", "/parties-events", "/book-table", "/cart", "/checkout"]);
 
 export function getHeaderVariant(pathname: string) {
   const isInfoPage = infoPages.has(pathname);
