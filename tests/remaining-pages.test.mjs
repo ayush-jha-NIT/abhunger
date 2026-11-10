@@ -28,7 +28,7 @@ test("forms require explicit restaurant acceptance",()=>{
   assert.match(booking,/Please confirm availability/);
   assert.match(event,/Please confirm availability and charges/);
   assert.match(checkout,/Please confirm order acceptance/);
-  assert.match(checkout,/restaurant\.deliveryFee/);
+  assert.match(checkout,/calculateDeliveryFee/);
 });
 test("SEO routes and business schema are present",()=>{
   for(const route of ["../src/app/sitemap.ts","../src/app/robots.ts","../src/components/experience/restaurant-schema.tsx"])assert.ok(existsSync(new URL(route,import.meta.url)));

@@ -16,10 +16,11 @@ test("Part 4 replaces the preview with all six screenshot home sections", () => 
   assert.match(page, /priority/);
 });
 
-test("reference prices remain identified as unconfirmed display copy", () => {
+test("homepage displays printed-menu picks instead of old mockup prices", () => {
   const content = read("../src/config/home-content.ts");
-  assert.match(content, /not a confirmed/);
-  for (const value of [149,179,299,169,199]) assert.ok(content.includes(`referencePriceRupees: ${value}`));
+  for (const value of [80,70,60,300]) assert.ok(content.includes(`referencePriceRupees: ${value}`));
+  assert.doesNotMatch(content,/Veg Burger.*referencePriceRupees: 179/);
+  assert.doesNotMatch(content,/Cheese Pizza.*referencePriceRupees: 299/);
 });
 
 test("Home-specific image crops are present and indexed", () => {
