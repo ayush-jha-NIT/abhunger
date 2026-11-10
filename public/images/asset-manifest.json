@@ -235,12 +235,12 @@
     {
       "id": "exterior",
       "src": "/images/interiors/exterior.webp",
-      "alt": "AB Hunger Station concept storefront and evening café exterior",
+      "alt": "Actual AB Hunger Station exterior lit at night, with its sign and entrance",
       "category": "venue",
-      "width": 427,
-      "height": 227,
-      "sourceReference": "about",
-      "productionReady": false
+      "width": 1050,
+      "height": 675,
+      "sourceReference": "uploaded-venue",
+      "productionReady": true
     },
     {
       "id": "main-dining",
@@ -285,12 +285,12 @@
     {
       "id": "about-wide",
       "src": "/images/interiors/about-wide.webp",
-      "alt": "Warm café dining hall with wood seating and plants",
+      "alt": "Real AB Hunger Station dining hall decorated with hanging flowers and warm lights",
       "category": "venue",
-      "width": 566,
-      "height": 122,
-      "sourceReference": "home",
-      "productionReady": false
+      "width": 1100,
+      "height": 372,
+      "sourceReference": "uploaded-venue",
+      "productionReady": true
     },
     {
       "id": "booking-seating",

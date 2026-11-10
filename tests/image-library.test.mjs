@@ -24,7 +24,7 @@ test("every image has accessible text and references an existing local file", ()
   }
 });
 
-test("unverified screenshot imagery is never marked production ready", () => {
-  assert.ok(doc.assets.every((img) => img.productionReady === false));
+test("only the user-supplied venue images are approved; mockup extracts remain unapproved", () => {
+  assert.ok(doc.assets.every((img) => img.sourceReference === "uploaded-venue" ? img.productionReady === true : img.productionReady === false));
   assert.ok(doc.assets.length >= 35);
 });
