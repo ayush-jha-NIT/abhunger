@@ -1,7 +1,6 @@
 /**
- * Home page display copy and reference-only menu highlights.
- * IMPORTANT: prices are transcribed from the supplied UI mockup, not a confirmed
- * restaurant menu. Replace with client-approved prices before public launch.
+ * Home page picks now reflect the printed menu provided on 10 November 2026.
+ * Images remain illustrative; restaurant confirms availability and prices at checkout.
  */
 import type { CafeImageId } from "@/config/image-library";
 
@@ -12,11 +11,11 @@ export type Highlight = {
 };
 
 export const homeHighlights: readonly Highlight[] = [
-  { name: "Cappuccino", image: "cappuccino", referencePriceRupees: 149 },
-  { name: "Veg Burger", image: "veg-burger", referencePriceRupees: 179 },
-  { name: "Cheese Pizza", image: "cheese-pull-pizza", referencePriceRupees: 299 },
-  { name: "Grilled Sandwich", image: "grilled-sandwich", referencePriceRupees: 169 },
-  { name: "Chocolate Brownie with Ice Cream", image: "brownie-ice-cream", referencePriceRupees: 199 },
+  { name: "Veg Loaded Burger", image: "veg-burger", referencePriceRupees: 80 },
+  { name: "Peri Peri Sandwich", image: "grilled-sandwich", referencePriceRupees: 70 },
+  { name: "Veg Steam Momos (6 pcs)", image: "veg-momos", referencePriceRupees: 60 },
+  { name: "Strawberry Shake", image: "strawberry-shake", referencePriceRupees: 60 },
+  { name: "Paneer Butter Masala", image: "paneer-curry", referencePriceRupees: 300 },
 ] as const;
 
 export const homeGallery: readonly { image: CafeImageId; label: string }[] = [
