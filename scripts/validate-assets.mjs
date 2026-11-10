@@ -14,7 +14,13 @@ for (const item of document.assets) {
   if (!item.alt || !Number.isInteger(item.width) || !Number.isInteger(item.height)) {
     throw new Error(`Missing metadata for ${item.src}`);
   }
-  if (item.productionReady !== false) throw new Error(`Unexpected production approval: ${item.src}`);
+  // Only uploaded, genuine venue photographs may be marked ready. All mockup crops remain unapproved.
+  if (item.sourceReference === "uploaded-venue") {
+    if (item.productionReady !== true) throw new Error(`Uploaded venue photo not approved: ${item.src}`);
+    if (item.width < 640 || item.height < 350) throw new Error(`Venue photo resolution too low: ${item.src}`);
+  } else if (item.productionReady !== false) {
+    throw new Error(`Unexpected production approval: ${item.src}`);
+  }
   const path = resolve(root, "public", item.src.slice(1));
   if (!path.startsWith(resolve(root, "public") + sep)) throw new Error(`Escaped root: ${item.src}`);
   if (!existsSync(path) || statSync(path).size < 1500) throw new Error(`Missing/empty file: ${item.src}`);
@@ -23,4 +29,4 @@ for (const item of document.assets) {
     throw new Error(`Not a valid WebP header: ${item.src}`);
   }
 }
-console.log(`Validated ${document.assets.length} reference-derived WebP assets.`);
+console.log(`Validated ${document.assets.length} WebP assets, including approved venue photographs.`);

@@ -21,7 +21,7 @@ test("Part 5 shows four value cards and three ambience photos", () => {
   for (const card of ["Delicious Food", "Great Beverages", "Cozy Ambience", "Warm Hospitality"]) {
     assert.ok(page.includes(card), `Missing value card: ${card}`);
   }
-  for (const image of ["main-dining", "plant-lounge", "booth-seating"]) {
+  for (const image of ["main-dining", "venue-side", "venue-entrance"]) {
     assert.ok(page.includes(`"${image}"`), `Missing ambience photo: ${image}`);
   }
 });
