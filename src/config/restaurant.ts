@@ -2,17 +2,19 @@
  * Client-owned configuration. Values from the design screenshots are not proof
  * of operating hours, delivery fees, menu approval or official WhatsApp number.
  */
-const rawPhone = process.env.NEXT_PUBLIC_RESTAURANT_WHATSAPP ?? "";
+const rawPhone = process.env.NEXT_PUBLIC_RESTAURANT_WHATSAPP ?? "917499668649";
 const digits = rawPhone.replace(/\D/g, "");
 
 export const restaurant = {
   name: "AB Hunger Station",
   address: "Bhagwa Market, Prayagraj, Uttar Pradesh",
   whatsapp: digits.length >= 10 && digits.length <= 15 ? digits : null,
-  mapsUrl: process.env.NEXT_PUBLIC_RESTAURANT_MAPS_URL || null,
+  mapsUrl: process.env.NEXT_PUBLIC_RESTAURANT_MAPS_URL || "https://maps.app.goo.gl/VLofhWV8dE6YHxq58",
   instagramUrl: process.env.NEXT_PUBLIC_RESTAURANT_INSTAGRAM_URL || null,
   /** Never invent an actual delivery charge or quote an unapproved checkout total. */
   deliveryFee: configuredFee(process.env.NEXT_PUBLIC_DELIVERY_FEE),
+  freeDeliveryAbove: 300,
+  deliveryRadiusKm: 10,
   menuConfirmed: process.env.NEXT_PUBLIC_MENU_CONFIRMED === "true",
 } as const;
 
@@ -20,6 +22,13 @@ function configuredFee(raw: string | undefined): number | null {
   if (raw === undefined || raw.trim() === "") return null;
   const value = Number(raw);
   return Number.isFinite(value) && value >= 0 ? Math.round(value) : null;
+}
+
+/** Free delivery applies only above Rs 300; the regular fee remains unconfirmed. */
+export function calculateDeliveryFee(subtotal: number, orderType: "delivery" | "takeaway"): number | null {
+  if (orderType === "takeaway") return 0;
+  if (subtotal > restaurant.freeDeliveryAbove) return 0;
+  return restaurant.deliveryFee;
 }
 
 export function whatsappUrl(message: string): string | null {

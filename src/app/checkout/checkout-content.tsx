@@ -8,7 +8,7 @@ import { useCart } from "@/features/cart/use-cart";
 import { cartTotal, setCartQuantity } from "@/features/cart/cart";
 import { menuById } from "@/data/menu";
 import { getCafeImage } from "@/config/image-library";
-import { money, restaurant, whatsappUrl } from "@/config/restaurant";
+import { calculateDeliveryFee, money, restaurant, whatsappUrl } from "@/config/restaurant";
 
 type OrderType = "delivery"|"takeaway";
 export function CheckoutContent(){
@@ -16,7 +16,7 @@ export function CheckoutContent(){
   const [orderType,setOrderType]=useState<OrderType>("delivery");
   const [error,setError]=useState("");
   const subtotal=cartTotal(items);
-  const deliveryFee = orderType==="delivery"?restaurant.deliveryFee:0;
+  const deliveryFee = calculateDeliveryFee(subtotal, orderType);
   const canQuoteTotal = deliveryFee!==null;
   const total=canQuoteTotal?subtotal+deliveryFee:subtotal;
 
@@ -30,7 +30,7 @@ export function CheckoutContent(){
     const customer=String(data.get("name")||"").trim();const phone=String(data.get("phone")||"").trim();const address=String(data.get("address")||"").trim();
     if(orderType==="delivery"&&!address){setError("Enter a delivery address.");return;}
     const lines=items.map(line=>{const item=menuById.get(line.id);return item?`• ${item.name} x${line.quantity} = ${money((item.price||0)*line.quantity)}`:""}).filter(Boolean);
-    const message=["AB Hunger Station | Food Order Inquiry", "", ...lines,"",`Items subtotal: ${money(subtotal)}`,`Delivery charge: ${orderType==="takeaway"?"Not applicable":deliveryFee===null?"To be confirmed":money(deliveryFee)}`,`Total: ${canQuoteTotal?money(total):"Awaiting delivery fee confirmation"}`,!restaurant.menuConfirmed?"NOTE: Menu prices are reference samples. Please confirm item prices and final amount.":"Please confirm final payable amount.","",`Order type: ${orderType.toUpperCase()}`,`Name: ${customer}`,`Phone: ${phone}`,...(orderType==="delivery"?[`Delivery address: ${address}`]:[]),`Preferred time: ${String(data.get("time")||"ASAP")}`,`Payment: ${String(data.get("payment")||"Cash / UPI on fulfillment")}`,`Instructions: ${String(data.get("instructions")||"None")}`,"Please confirm order acceptance before preparing."].join("\n");
+    const message=["AB Hunger Station | Food Order Inquiry", "", ...lines,"",`Items subtotal: ${money(subtotal)}`,`Delivery charge: ${orderType==="takeaway"?"Not applicable":deliveryFee===null?"To be confirmed":money(deliveryFee)}`,...(orderType==="delivery"?[`Delivery area: within ${restaurant.deliveryRadiusKm} km of the cafe; distance to be confirmed by cafe`]:[]),`Total: ${canQuoteTotal?money(total):"Awaiting delivery fee confirmation"}`,!restaurant.menuConfirmed?"NOTE: Menu prices are reference samples. Please confirm item prices and final amount.":"Please confirm final payable amount.","",`Order type: ${orderType.toUpperCase()}`,`Name: ${customer}`,`Phone: ${phone}`,...(orderType==="delivery"?[`Delivery address: ${address}`]:[]),`Preferred time: ${String(data.get("time")||"ASAP")}`,`Payment: ${String(data.get("payment")||"Cash / UPI on fulfillment")}`,`Instructions: ${String(data.get("instructions")||"None")}`,"Please confirm order acceptance before preparing."].join("\n");
     const url=whatsappUrl(message);if(!url)return;setError("");window.location.assign(url);
   }
   return <main className="experience-page checkout-page">
@@ -39,6 +39,7 @@ export function CheckoutContent(){
     <section className="site-container checkout-layout"><div className="checkout-details-panel"><h2><UserRound/> Your Details</h2><p>Enter your details to complete your order inquiry.</p>
       <form id="checkout-form" className="experience-form" onSubmit={submit}><fieldset className="checkout-order-options"><legend>Order Type *</legend><label className={orderType==="delivery"?"is-active":""}><input type="radio" name="orderType" value="delivery" checked={orderType==="delivery"} onChange={()=>setOrderType("delivery")}/><Truck/><strong>Delivery</strong><small>Get it delivered to your location</small></label><label className={orderType==="takeaway"?"is-active":""}><input type="radio" name="orderType" value="takeaway" checked={orderType==="takeaway"} onChange={()=>setOrderType("takeaway")}/><ShoppingBag/><strong>Takeaway</strong><small>Pick up from AB Hunger Station</small></label></fieldset>
         <div className="experience-form-grid"><label>Full Name *<input name="name" type="text" autoComplete="name" maxLength={100} required placeholder="Your full name"/></label><label>Mobile Number *<input name="phone" type="tel" autoComplete="tel" minLength={10} maxLength={18} required placeholder="Phone number"/></label></div>
+        {orderType==="delivery" && <p className="experience-form-note">Delivery is available within {restaurant.deliveryRadiusKm} km. Free delivery applies strictly above {money(restaurant.freeDeliveryAbove)}. For ₹300 or below, the charge and location eligibility must be confirmed by the restaurant.</p>}
         {orderType==="delivery" && <label>Delivery Address *<textarea name="address" autoComplete="street-address" required maxLength={350} rows={2} placeholder="House number, street, landmark, area, Prayagraj"/></label>}
         <div className="experience-form-grid"><label>Preferred Time<select name="time" defaultValue="ASAP"><option value="ASAP">As soon as available</option><option value="30–45 minutes">In 30–45 minutes (request)</option><option value="1 hour">In 1 hour (request)</option><option value="Call to coordinate">Coordinate with restaurant</option></select></label><label>Payment Method<select name="payment" defaultValue="Cash / UPI on fulfillment"><option>Cash / UPI on fulfillment</option><option>Cash</option><option>UPI directly with restaurant</option></select></label></div>
         <label>Special Instructions (Optional)<textarea name="instructions" rows={3} maxLength={700} placeholder="Less spicy, no onion, extra sauce..."/></label>

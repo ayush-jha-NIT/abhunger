@@ -217,7 +217,7 @@ function VisitSection() {
               <Link className="home-directions" href="/contact">View Location <ArrowRight size={14} aria-hidden="true" /></Link>
             )}
           </div>
-          <p className="home-visit-disclaimer">*Hours shown from the design reference; confirmation pending.</p>
+          <p className="home-visit-disclaimer">*Operating hours must be confirmed by the restaurant.</p>
         </div>
       </div>
     </section>
