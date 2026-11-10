@@ -245,12 +245,12 @@
     {
       "id": "main-dining",
       "src": "/images/interiors/main-dining.webp",
-      "alt": "Comfortable café seating and warm pendant lights",
+      "alt": "Actual AB Hunger Station decorated hall with dining tables, floral hanging arrangements and warm lighting",
       "category": "venue",
-      "width": 252,
-      "height": 152,
-      "sourceReference": "gallery",
-      "productionReady": false
+      "width": 960,
+      "height": 658,
+      "sourceReference": "uploaded-venue",
+      "productionReady": true
     },
     {
       "id": "plant-lounge",
@@ -295,22 +295,22 @@
     {
       "id": "booking-seating",
       "src": "/images/interiors/booking-seating.webp",
-      "alt": "Quiet café dining area with warm seating",
+      "alt": "Real dining hall available for AB Hunger Station table booking",
       "category": "venue",
-      "width": 384,
-      "height": 160,
-      "sourceReference": "booking",
-      "productionReady": false
+      "width": 960,
+      "height": 658,
+      "sourceReference": "uploaded-venue",
+      "productionReady": true
     },
     {
       "id": "party-space",
       "src": "/images/events/party-space.webp",
-      "alt": "Café party space with decorated green wall and warm pendants",
+      "alt": "Real AB Hunger Station hall arranged with tables, greenery and hanging floral decorations",
       "category": "event",
-      "width": 572,
-      "height": 211,
-      "sourceReference": "party",
-      "productionReady": false
+      "width": 960,
+      "height": 658,
+      "sourceReference": "uploaded-venue",
+      "productionReady": true
     },
     {
       "id": "birthday-cake",
@@ -451,6 +451,26 @@
       "height": 146,
       "sourceReference": "about",
       "productionReady": false
+    },
+    {
+      "id": "venue-side",
+      "src": "/images/interiors/venue-side.webp",
+      "alt": "AB Hunger Station exterior and staircase photographed at night from the side",
+      "width": 750,
+      "height": 1000,
+      "productionReady": true,
+      "category": "venue",
+      "sourceReference": "uploaded-venue"
+    },
+    {
+      "id": "venue-entrance",
+      "src": "/images/interiors/venue-entrance.webp",
+      "alt": "Actual AB Hunger Station cafe entrance, black signage and dining area seen inside",
+      "width": 750,
+      "height": 1000,
+      "productionReady": true,
+      "category": "venue",
+      "sourceReference": "uploaded-venue"
     }
   ]
 }

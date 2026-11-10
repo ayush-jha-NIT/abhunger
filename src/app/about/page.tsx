@@ -44,7 +44,7 @@ const values = [
   },
 ] as const;
 
-const ambienceImages: CafeImageId[] = ["main-dining", "plant-lounge", "booth-seating"];
+const ambienceImages: CafeImageId[] = ["main-dining", "venue-side", "venue-entrance"];
 const foodStrip: CafeImageId[] = [
   "about-strip-burger",
   "about-strip-pasta",

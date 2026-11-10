@@ -9,7 +9,7 @@ import { ExperienceHero, RoundedLink } from "@/components/experience/primitives"
 const groups = [
   { title: "Our Food", id: "Food", icon: Utensils, images: ["cheese-pull-pizza", "veg-momos", "paneer-curry", "cheesy-pasta", "veg-burger", "grilled-sandwich", "pasta-primavera", "brownie-ice-cream"] as CafeImageId[] },
   { title: "Our Beverages", id: "Beverages", icon: Coffee, images: ["cappuccino", "chocolate-shake", "blue-lemonade", "strawberry-shake", "iced-coffee", "coffee-beans"] as CafeImageId[] },
-  { title: "Our Ambience", id: "Ambience", icon: Sofa, images: ["feature-wall", "main-dining", "plant-lounge", "booth-seating", "about-wide", "booking-seating"] as CafeImageId[] },
+  { title: "Our Ambience", id: "Ambience", icon: Sofa, images: ["venue-side", "main-dining", "venue-entrance", "exterior", "about-wide", "booking-seating"] as CafeImageId[] },
   { title: "Our Moments", id: "Moments", icon: Heart, images: ["birthday-cake", "anniversary", "kitty-party", "private-celebration", "celebration-cake", "party-space"] as CafeImageId[] },
 ];
 const categories = [{ id: "All", icon: Grid2X2 }, ...groups.map(g => ({ id: g.id, icon: g.icon }))];

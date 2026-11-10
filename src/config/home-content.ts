@@ -23,6 +23,6 @@ export const homeGallery: readonly { image: CafeImageId; label: string }[] = [
   { image: "cheesy-pasta", label: "Delicious pasta" },
   { image: "main-dining", label: "Warm and welcoming dining room" },
   { image: "cheesecake", label: "Creamy dessert with berries" },
-  { image: "booth-seating", label: "Comfortable café seating" },
+  { image: "venue-entrance", label: "Actual AB Hunger Station entrance" },
   { image: "iced-coffee", label: "Chilled café drink" },
 ] as const;

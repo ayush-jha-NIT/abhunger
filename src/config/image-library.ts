@@ -38,13 +38,13 @@ export const imageLibrary = {
   "iced-coffee": {"src": "/images/food/iced-coffee.webp", "alt": "Cold creamy iced coffee with whipped cream", "width": 152, "height": 56, "kind": "drink", "productionReady": false},
   "coffee-beans": {"src": "/images/food/coffee-beans.webp", "alt": "Fresh latte art in a coffee cup", "width": 154, "height": 56, "kind": "drink", "productionReady": false},
   "exterior": {"src":"/images/interiors/exterior.webp","alt":"Actual AB Hunger Station exterior lit at night, with its sign and entrance","width":1050,"height":675,"kind":"venue","productionReady":true},
-  "main-dining": {"src": "/images/interiors/main-dining.webp", "alt": "Comfortable café seating and warm pendant lights", "width": 252, "height": 152, "kind": "venue", "productionReady": false},
+  "main-dining": {"src":"/images/interiors/main-dining.webp","alt":"Actual AB Hunger Station decorated hall with dining tables, floral hanging arrangements and warm lighting","width":960,"height":658,"kind":"venue","productionReady":true},
   "plant-lounge": {"src": "/images/interiors/plant-lounge.webp", "alt": "Plant-filled dining room with hanging lights", "width": 246, "height": 152, "kind": "venue", "productionReady": false},
   "booth-seating": {"src": "/images/interiors/booth-seating.webp", "alt": "Café booths with warm amber lights and greenery", "width": 258, "height": 152, "kind": "venue", "productionReady": false},
   "feature-wall": {"src": "/images/interiors/feature-wall.webp", "alt": "Cosy café seating beside a decorated feature wall", "width": 253, "height": 152, "kind": "venue", "productionReady": false},
   "about-wide": {"src":"/images/interiors/about-wide.webp","alt":"Real AB Hunger Station dining hall decorated with hanging flowers and warm lights","width":1100,"height":372,"kind":"venue","productionReady":true},
-  "booking-seating": {"src": "/images/interiors/booking-seating.webp", "alt": "Quiet café dining area with warm seating", "width": 384, "height": 160, "kind": "venue", "productionReady": false},
-  "party-space": {"src": "/images/events/party-space.webp", "alt": "Café party space with decorated green wall and warm pendants", "width": 572, "height": 211, "kind": "event", "productionReady": false},
+  "booking-seating": {"src":"/images/interiors/booking-seating.webp","alt":"Real dining hall available for AB Hunger Station table booking","width":960,"height":658,"kind":"venue","productionReady":true},
+  "party-space": {"src":"/images/events/party-space.webp","alt":"Real AB Hunger Station hall arranged with tables, greenery and hanging floral decorations","width":960,"height":658,"kind":"event","productionReady":true},
   "birthday-cake": {"src": "/images/events/birthday-cake.webp", "alt": "Birthday cake with candles at a celebration", "width": 123, "height": 116, "kind": "event", "productionReady": false},
   "anniversary": {"src": "/images/events/anniversary.webp", "alt": "Anniversary roses and heart lights", "width": 130, "height": 116, "kind": "event", "productionReady": false},
   "kitty-party": {"src": "/images/events/kitty-party.webp", "alt": "Pink chairs around a festive small-group table", "width": 132, "height": 116, "kind": "event", "productionReady": false},
@@ -59,6 +59,8 @@ export const imageLibrary = {
   "about-strip-cappuccino": {"src": "/images/food/about-strip-cappuccino.webp", "alt": "Cappuccino with latte art served on a saucer", "width": 202, "height": 146, "kind": "food", "productionReady": false},
   "about-strip-sandwich": {"src": "/images/food/about-strip-sandwich.webp", "alt": "Toasted sandwich with fries and fresh vegetables", "width": 213, "height": 146, "kind": "food", "productionReady": false},
   "about-strip-brownie": {"src": "/images/food/about-strip-brownie.webp", "alt": "Chocolate brownie topped with ice cream and chocolate sauce", "width": 223, "height": 146, "kind": "food", "productionReady": false},
+  "venue-side": {"src":"/images/interiors/venue-side.webp","alt":"AB Hunger Station exterior and staircase photographed at night from the side","width":750,"height":1000,"kind":"venue","productionReady":true},
+  "venue-entrance": {"src":"/images/interiors/venue-entrance.webp","alt":"Actual AB Hunger Station cafe entrance, black signage and dining area seen inside","width":750,"height":1000,"kind":"venue","productionReady":true},
 } as const satisfies Record<string, CafeImage>;
 
 export type CafeImageId = keyof typeof imageLibrary;
